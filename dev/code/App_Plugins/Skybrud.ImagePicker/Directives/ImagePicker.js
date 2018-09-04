@@ -92,10 +92,10 @@
                 if (!scope.cfg.image.height) scope.cfg.image.height = scope.cfg.image.width / 16 * 10;
 
                 //Single image size change
-                if (scope.cfg.limit == 1 && scope.cfg.layout.initial == 'tiles') {
-                    scope.cfg.image.width = 1000;
-                    scope.cfg.image.height = scope.cfg.image.width / 16 * 10;
-                }
+                //if (scope.cfg.limit == 1 && scope.cfg.layout.initial == 'tiles') {
+                //    scope.cfg.image.width = 1000;
+                //    scope.cfg.image.height = scope.cfg.image.width / 16 * 10;
+                //}
 
                 if (!scope.cfg.layout) scope.cfg.layout = {};
                 if (scope.cfg.layout.initial != 'tiles') scope.cfg.layout.initial = 'list';
@@ -112,6 +112,10 @@
                 scope.cfg.items.description.hidden = scope.cfg.items.description.mode == 'hidden';
                 scope.cfg.items.link.required = scope.cfg.items.link.mode == 'required';
                 scope.cfg.items.link.hidden = scope.cfg.items.link.mode == 'hidden';
+                
+                if (!scope.cfg.items.nocrop) scope.cfg.items.nocrop = {};
+                scope.cfg.items.nocrop.visible = scope.cfg.items.nocrop.mode === 'visible';
+                scope.cfg.items.nocrop.default = scope.cfg.items.nocrop.default === true;
 
                 scope.itemStyles = {
                     width: scope.cfg.image.width + 'px',
@@ -175,21 +179,22 @@
 
                 // Get the Umbraco version
                 var v = Umbraco.Sys.ServerVariables.application.version.split('.');
-                v = parseFloat(v[0] + '.' + v[1]);
+                v = parseFloat(v[0] + '.' + (v[1].length === 1 ? '0' + v[1] : v[1]));
 
                 // Collapse all open rows
                 scope.toggleOpen({});
                 
                 // The new overlay only works from 7.4 and up, so for older
                 // versions we should use the dialogService instead
-                if (v < 7.4) {
+                if (v < 7.04) {
 
                     var item = {
                         $uniqueId: getUniqueId(),
                         title: '',
                         description: '',
                         imageId: 0,
-                        link: null
+                        link: null,
+                        nocrop: scope.cfg.items.nocrop.default
                     };
 
                     // Collapse all open rows
@@ -235,7 +240,8 @@
                                 imageId: image.id,
                                 $image: image,
                                 link: null,
-                                $showInfo: scope.layout == 'list' && model.selectedImages.length == 1
+                                $showInfo: scope.layout == 'list' && model.selectedImages.length == 1,
+                                nocrop: scope.cfg.items.nocrop.default
                             };
 
                             item.$imageUrl = item.imageUrl = getImageUrl(item);

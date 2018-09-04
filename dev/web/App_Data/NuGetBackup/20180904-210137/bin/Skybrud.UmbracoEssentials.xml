@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skybrud.UmbracoEssentials</name>
+    </assembly>
+    <members>
+        <member name="M:Skybrud.UmbracoEssentials.Content.ContentUtils.TypedContent(System.String)">
+            <summary>
+            Returns an instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> from the content cache based on the ID specified by
+            <paramref name="str"/>.
+            </summary>
+            <param name="str">An instance of <see cref="T:System.String"/> with the ID of the content item.</param>
+            <returns>An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> if found, otherwise <code>NULL</code>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Content.ContentUtils.TypedContent``1(System.String,System.Func{Umbraco.Core.Models.IPublishedContent,``0})">
+            <summary>
+            Returns an instance of <typeparamref name="T"/> from the content cache based on the ID specified by
+            <paramref name="str"/>.
+            <paramref name="func"/>.
+            </summary>
+            <param name="str">An instance of <see cref="T:System.String"/> with the ID of the content item.</param>
+            <param name="func">The delegate function to be used for the conversion.</param>
+            <returns>An instance of <typeparamref name="T"/> if found, otherwise <code>NULL</code>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Content.ContentUtils.TypedCsvContent(System.String)">
+            <summary>
+            Converts the comma seperated IDs as specified by <paramref name="str"/> into an
+            array of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> by using the content cache.
+            </summary>
+            <param name="str">An instance of <see cref="T:System.String"/> with the comma separated IDs of the content items.</param>
+            <returns>An array of <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Content.ContentUtils.TypedCsvContent``1(System.String,System.Func{Umbraco.Core.Models.IPublishedContent,``0})">
+            <summary>
+            Converts the comma seperated IDs as specified by <paramref name="str"/> into an array of
+            <typeparamref name="T"/> by using the content cache.
+            </summary>
+            <param name="str">An instance of <see cref="T:System.String"/> with the comma separated IDs of the content items.</param>
+            <param name="func">The delegate function to be used for the conversion.</param>
+            <returns>Array of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:Skybrud.UmbracoEssentials.Extensions.Json.JObjectExtensions">
+            <summary>
+            Various extensions methods for <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            </summary>
+        </member>
+        <member name="T:Skybrud.UmbracoEssentials.Extensions.Mvc.HtmlHelperExtensions">
+            <summary>
+            Static class with various extension methods for <see cref="T:System.Web.Mvc.HtmlHelper"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Mvc.HtmlHelperExtensions.GetCachableUrl(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Generates a cachable URL based on the specified <paramref name="url"/>. If <paramref name="url"/> matches a
+            local file, the timestamp of that file will be appended to the query for cache busting purposes. For
+            external files - or if the file couldn't be found on the disk - the URL is not modified.
+            </summary>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="url">The URL to be converted.</param>
+            <returns>Returns the cachable URL.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Mvc.HtmlHelperExtensions.GetCachableUrl``1(System.Web.Mvc.HtmlHelper{``0},System.String)">
+            <summary>
+            Generates a cachable URL based on the specified <paramref name="url"/>. If <paramref name="url"/> matches a
+            local file, the timestamp of that file will be appended to the query for cache busting purposes. For
+            external files - or if the file couldn't be found on the disk - the URL is not modified.
+            </summary>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="url">The URL to be converted.</param>
+            <returns>Returns the cachable URL.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Mvc.HtmlHelperExtensions.GetCachableUrl(System.String)">
+            <summary>
+            Generates a cachable URL based on the specified <paramref name="url"/>. If <paramref name="url"/> matches a
+            local file, the timestamp of that file will be appended to the query for cache busting purposes. For
+            external files - or if the file couldn't be found on the disk - the URL is not modified.
+            </summary>
+            <param name="url">The URL to be converted.</param>
+            <returns>Returns the cachable URL.</returns>
+        </member>
+        <member name="T:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions">
+            <summary>
+            Static class with various extension methods for <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.IsHidden(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Returns whether the specified <paramref name="content"/> item should be hidden in navigation (if the
+            <code>umbracoNaviHide</code> property has been checked in Umbraco).
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing the item.</param>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.IsDescendantOf(Umbraco.Core.Models.IPublishedContent,System.Int32)">
+            <summary>
+            Gets whether the specified <paramref name="content"/> item is a descendant of a node with the
+            <paramref name="contentId"/>.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing the
+            item/descendant.</param>
+            <param name="contentId">The ID of the ancestor.</param>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.GetString(Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets a string value of the property with the specified <paramref name="propertyAlias"/>, or
+            <code>null</code> if not found.
+            </summary>
+            <param name="content">The instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> that this method extends.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+            <returns>Returns the string value of the property, or <code>null</code> if the property could not be found.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.TypedMedia(Umbraco.Core.Models.IPublishedContent,System.String,System.Boolean)">
+            <summary>
+            Returns an instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> from the media cache based on the ID specified in
+            the property with the specified <paramref name="propertyAlias"/>.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.</param>
+            <param name="propertyAlias">The alias of the property containing the ID.</param>
+            <param name="recursive">A value indicating whether to recurse.</param>
+            <returns>Instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> if found, otherwise <code>NULL</code>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.TypedMedia``1(Umbraco.Core.Models.IPublishedContent,System.String,System.Func{Umbraco.Core.Models.IPublishedContent,``0})">
+            <summary>
+            Returns an instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> from the media cache based on the ID specified in
+            the property with the specified <paramref name="propertyAlias"/>. If found, the
+            <see cref="T:Umbraco.Core.Models.IPublishedContent"/> is converted to the type of <typeparamref name="T"/> using the specified
+            <paramref name="func"/>.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.</param>
+            <param name="propertyAlias">The alias of the property containing the ID.</param>
+            <param name="func">The delegate function to be used for the conversion.</param>
+            <returns>Instance of <typeparamref name="T"/> if found, otherwise <code>NULL</code>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.TypedCsvMedia(Umbraco.Core.Models.IPublishedContent,System.String,System.Boolean)">
+            <summary>
+            Converts the comma seperated IDs of the property with the specified <paramref name="propertyAlias"/> into
+            an array of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> by using the media cache.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.</param>
+            <param name="propertyAlias">The alias of the property containing the IDs.</param>
+            <param name="recursive">A value indicating whether to recurse.</param>
+            <returns>Array of <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.PublishedContent.PublishedContentExtensions.TypedCsvMedia``1(Umbraco.Core.Models.IPublishedContent,System.String,System.Func{Umbraco.Core.Models.IPublishedContent,``0})">
+            <summary>
+            Converts the comma seperated IDs of the property with the specified <paramref name="propertyAlias"/> into
+            an array of <code>T</code> by using the media cache. Each media is converted to the type of <code>T</code>
+            using the specified <paramref name="func"/>.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/>.</param>
+            <param name="propertyAlias">The alias of the property containing the IDs.</param>
+            <param name="func">The delegate function to be used for the conversion.</param>
+            <returns>Array of <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Udi.UdiExtensions.GetGuid(System.Int32)">
+            <summary>
+            Find node in Umbraco and return the guid of the node
+            </summary>
+            <param name="nodeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Udi.UdiExtensions.GetGuidStringExamine(System.Int32)">
+            <summary>
+            Find node in Umbraco and returns the guid-string (w. - removed)
+            </summary>
+            <param name="nodeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Udi.UdiExtensions.GetGuidsStringExamine(System.Int32[])">
+            <summary>
+            Find nodes in Umbraco and returns the guid-strings (w. - removed)
+            </summary>
+            <param name="nodeIds">int[]</param>
+            <returns></returns>
+        </member>
+        <member name="M:Skybrud.UmbracoEssentials.Extensions.Udi.UdiExtensions.GetGuidsStringExamine(System.String)">
+            <summary>
+            Find nodes in Umbraco and returns the guid-strings (w. - removed)
+            </summary>
+            <param name="nodeIds">string</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
