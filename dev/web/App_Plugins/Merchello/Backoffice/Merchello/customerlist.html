@@ -1,0 +1,36 @@
+<div ng-controller="Merchello.Backoffice.CustomerListController" ng-show="loaded">
+    <umb-panel>
+
+      <div class="umb-editor-header umb-panel-header">
+        <div class="umb-panel-header-content-wrapper">
+
+          <div class="umb-panel-header-content">
+            <div class="umb-panel-header-left-side -top-position">
+              <div class="umb-panel-header-title-wrapper">
+                <div class="umb-panel-header-name">
+                  <localize key="merchelloCustomers_customers" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <merchello-tabs tabs="tabs"></merchello-tabs>
+        </div>
+      </div>
+      
+
+      <merchello-panel>
+            <div class="merchello-pane">
+
+                <merchello-list-view builder="customerDisplayBuilder" load="load" get-column-value="getColumnValue" entity-type="entityType">
+
+            </div>
+            <div class="pager well" data-ng-show="preValuesLoaded && customers.length == 0 && collectionKey===''">
+                <localize key="merchelloCustomers_noCustomers" />
+            </div>
+            <div class="pager well" data-ng-show="preValuesLoaded && customers.length == 0 && collectionKey!==''">
+                <localize key="merchelloCustomers_emptyCustomerCollection" />
+            </div>
+        </merchello-panel>
+    </umb-panel>
+</div>

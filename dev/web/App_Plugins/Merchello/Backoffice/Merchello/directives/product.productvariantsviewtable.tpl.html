@@ -1,0 +1,128 @@
+<div class="merchello-list-view umb-listview clearfix">
+    
+    
+    <div class="umb-editor-sub-header">
+
+        <div class="umb-editor-sub-header__content-left">
+            <div class="umb-editor-sub-header__section">
+                <label>
+                    <localize key="merchelloProductEdit_variantInformation" />
+                    <small><localize key="merchelloProductEdit_variantInformationHelper" /></small>
+                </label>
+            </div>
+        </div>
+
+        <div class="umb-editor-sub-header__content-right">
+            <div class="umb-editor-sub-header__section" data-ng-show="allVariants">
+                <div class="pull-right -no-margin-bottom" style="position: relative;">                   
+                    <a class="btn btn-info" href="#" data-toggle="dropdown" data-ng-click="bulkAction = !bulkAction">
+                        Bulk Action ({{selectedVariants().length}} Variants)
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu umb-actions" role="menu" aria-labelledby="dLabel">
+                        <li><a data-ng-click="changePrices()"><localize key="merchelloProductEdit_changePrices" /></a></li>
+                        <li><a data-ng-click="updateInventory()"><localize key="merchelloProductEdit_updateInventory" /></a></li>
+                        <li><a data-ng-click="toggleTracksInventory()"><localize key="merchelloProductEdit_toggleTracksInventory" /></a></li>
+                        <li><a data-ng-click="toggleOnSale()"><localize key="merchelloProductEdit_toggleOnSale" /></a></li>
+                        <li><a data-ng-click="toggleAvailable()"><localize key="merchelloProductEdit_toggleAvailable" /></a></li>
+                        <li><a data-ng-click="regenSkus()"><localize key="merchelloProducts_regenSkus" /></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    
+    <div class="umb-table">
+
+        <div class="umb-table-head">
+            <div class="umb-table-row">
+                <div class="umb-table-cell">
+                    <input type="checkbox" data-ng-model="checkAll" data-ng-click="toggleChecks()" class="umb-table__input" />
+                </div>
+                <div class="umb-table-cell" data-ng-repeat="option in product.productOptions | orderBy:'sortOrder'">
+                    {{option.name}}
+                </div>
+                <div class="umb-table-cell">
+                    <a href="#" data-ng-click="changeSortOrder('sku')" data-ng-class="{'sorted': sortProperty == 'sku'}" prevent-default class="umb-table-head__link">
+                        <span><localize key="merchelloGeneral_sku" /></span>
+                        <i class="umb-table-head__icon icon" data-ng-class="{'icon-navigation-up': sortProperty == 'sku', 'icon-navigation-down': sortProperty == '-sku'}"></i>
+                    </a>
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="merchelloVariant_toggleAvailable" />
+                </div>
+                <div class="umb-table-cell">
+                    Shippable
+                </div>
+                <div class="umb-table-cell">
+                    Taxable
+                </div>
+                <div class="umb-table-cell">
+                    <a href="#" data-ng-click="changeSortOrder('totalInventoryCount')" data-ng-class="{'sorted': sortProperty == 'totalInventoryCount'}" prevent-default class="umb-table-head__link">
+                        <span><localize key="merchelloGeneral_total" /></span>
+                        <i class="umb-table-head__icon icon" data-ng-class="{'icon-navigation-up': sortProperty == 'totalInventoryCount', 'icon-navigation-down': sortProperty == '-totalInventoryCount'}"></i>
+                    </a>
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="merchelloVariant_toggleOnSale" />
+                </div>
+                <div class="umb-table-cell">
+                    <a href="#" data-ng-click="changeSortOrder('price')" data-ng-class="{'sorted': sortProperty == 'price'}" prevent-default class="umb-table-head__link">
+                        <span><localize key="merchelloGeneral_price" /></span>
+                        <i class="umb-table-head__icon icon" data-ng-class="{'icon-navigation-up': sortProperty == 'price', 'icon-navigation-down': sortProperty == '-price'}"></i>
+                    </a>
+                </div>
+                <div class="umb-table-cell">
+                    <localize key="general_edit" />
+                </div>
+            </div>
+        </div>
+
+        <div class="umb-table-body">
+
+            <div class="umb-table-row" data-ng-repeat="variant in product.productVariants | orderBy:sortProperty"
+                                         data-ng-class="{active: variant.selected}"
+                                         data-ng-click="toggleAVariant(variant)">
+                
+                <div class="umb-table-cell">
+                    <input type="checkbox" data-ng-model="variant.selected" data-ng-change="toggleAVariant(variant)" class="umb-table__input" />
+                </div>
+                
+                <!--
+                td data-ng-repeat="attribute in variant.attributes | orderBy:'optionOrder'">{{attribute.name}}</td
+                -->
+                <div class="umb-table-cell" data-ng-repeat="option in product.productOptions | orderBy:'sortOrder'">{{ getVariantAttributeForOption(variant, option)}}</div>
+
+                <div class="umb-table-cell">{{variant.sku}}</div>
+                <!-- availability -->
+                <div data-ng-hide="variant.available" class="umb-table-cell"><localize key="general_no" /></div>
+                <div data-ng-show="variant.available" class="umb-table-cell"><localize key="general_yes" /></div>
+                <!-- shippable -->
+                <div data-ng-hide="variant.shippable" class="umb-table-cell"><localize key="general_no" /></div>
+                <div data-ng-show="variant.shippable" class="umb-table-cell"><localize key="general_yes" /></div>
+                <!-- taxable -->
+                <div data-ng-hide="variant.taxable" class="umb-table-cell"><localize key="general_no" /></div>
+                <div data-ng-show="variant.taxable" class="umb-table-cell"><localize key="general_yes" /></div>
+                <!-- inventory count -->
+                <div class="umb-table-cell">{{variant.totalInventoryCount}}</div>
+                <!-- sale information -->
+                <div data-ng-hide="variant.onSale" class="umb-table-cell"><localize key="general_no" /></div>
+                <div data-ng-show="variant.onSale" class="umb-table-cell">{{variant.salePrice | currency : currencySymbol }}</div>
+                <!-- price -->
+                <div class="umb-table-cell">{{variant.price | currency : currencySymbol }}</div>
+                <div class="umb-table-cell"><merchello-edit-icon do-edit="redirectToEditor(variant)"></merchello-edit-icon></div>
+
+            </div>
+
+
+        </div>
+    </div>
+    
+
+
+</div>
+
+

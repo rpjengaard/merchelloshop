@@ -1,0 +1,57 @@
+<form name="productOptionForm" id="productOptionForm" data-ng-show="ready">
+
+        <div class="form-group row-fluid">
+            <label for="name"><localize key="general_name" /></label>
+            <div class="error" data-ng-show="productOptionForm.name.$invalid && wasFormSubmitted"><localize key="merchelloValidation_nameFieldRequired" /></div>
+            <input name="name" id="name" data-ng-model="option.name" class="span8" type="text" required />
+        </div>
+
+        <div class="control-group" data-ng-show="option.name !== ''">
+
+            <h5><localize key="merchelloProductOptions_choices" /></h5>
+            <div class="error" data-ng-show="option.choices.length === 0 && wasFormSubmitted"><localize key="merchelloValidation_oneChoiceRequired" /></div>
+            <input type="text" name="choice" data-ng-model="choiceName" merch-enter="addChoice()" /> <merchello-add-icon do-add="addChoice()"></merchello-add-icon>
+        </div>
+        <table class="table settings-table col-xs-6 span6" data-ng-show="option.choices.length > 0">
+            <thead>
+            <tr>
+                <th data-ng-show="option.choices.length > 1"></th>
+                <th><localize key="merchelloGeneral_name" /> / <localize key="merchelloGeneral_sku" /></th>
+                <th><localize key="merchelloGeneral_selected" /></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody data-ui-sortable="sortableOptions" data-ng-model="option.choices">
+            <tr data-ng-repeat="choice in option.choices" class="sortable">
+                <td data-ng-show="option.choices.length > 1">
+                    <merchello-sort-icon data-ng-if="option.choices.length > 1"></merchello-sort-icon>
+                </td>
+                <td>
+                    <p><input type="text" data-ng-model="choice.name" localize="placeholder" placeholder="@merchelloGeneral_name" /></p>
+                    <input type="text" data-ng-model="choice.sku" localize="placeholder" placeholder="@merchelloGeneral_sku" />
+                </td>
+                <td><input type="radio" name="choiceSelected" data-ng-value="choice" data-ng-change="setSelectedChoice()" data-ng-model="selectedAttribute.current" /></td>
+                <td>
+                    <div class="merchello-icons">
+                    <merchello-save-icon do-save="addDetachedContent(choice)" show-save="contentType && option.key !== ''"/>
+                    <merchello-delete-icon do-delete="remove($index)" data-ng-if="showDelete(choice)"/>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="form-group control-group row-fluid">
+            <h5><localize key="merchelloProductOptions_customSettings" /></h5>
+            <label for="uiOption"><localize key="merchelloProductOptions_uiOption" /></label>
+            <select id="uiOption" name="uiOption" class="span8" data- ng-options="ui.value for ui in uiOptions track by ui.key" data-ng-model="selectedUiOption">
+                <option value="" selected>-</option>
+            </select>
+        </div>
+
+        <div class="form-group row-fluid control-group">
+            <detached-content-type-select entity-type="ProductOption" selected-content-type="contentType" set-selected-content-type-key="option.detachedContentTypeKey"></detached-content-type-select>
+        </div>
+
+
+</form>

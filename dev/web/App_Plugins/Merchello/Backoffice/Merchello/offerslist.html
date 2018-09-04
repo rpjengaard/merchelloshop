@@ -1,0 +1,31 @@
+<div ng-controller="Merchello.Backoffice.OffersListController" ng-show="loaded">
+    <umb-panel>
+
+      <div class="umb-editor-header umb-panel-header">
+        <div class="umb-panel-header-content-wrapper">
+
+          <div class="umb-panel-header-content">
+            <div class="umb-panel-header-left-side -top-position">
+              <div class="umb-panel-header-title-wrapper">
+                <div class="umb-panel-header-name">
+                  <localize key="merchelloMarketing_currentOffers" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <merchello-tabs tabs="tabs"></merchello-tabs>
+        </div>
+      </div>
+
+      <merchello-panel>
+            <div class="merchello-pane">
+
+
+                <merchello-list-view config="config" builder="offerSettingsDisplayBuilder" load="load" get-column-value="getColumnValue" entity-type="entityType" disable-collections>
+
+            </div>
+        </merchello-panel>
+
+    </umb-panel>
+</div>

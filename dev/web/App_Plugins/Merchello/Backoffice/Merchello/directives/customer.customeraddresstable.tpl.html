@@ -1,0 +1,45 @@
+<div class="merchello-list-view">
+<table class="table">
+    <thead>
+        <tr>
+            <th><localize key="merchelloCustomers_tblLabel" /></th>
+            <th><localize key="merchelloCustomers_tblFullName" /></th>
+            <th><localize key="merchelloCustomers_tblAddress" /></th>
+            <th><localize key="merchelloCustomers_tblAddressLine2" /></th>
+            <th><localize key="merchelloCustomers_tblLocality" /></th>
+            <th><localize key="merchelloCustomers_tblRegion" /></th>
+            <th><localize key="merchelloCustomers_tblCountry" /></th>
+            <th><localize key="merchelloCustomers_tblPostalCode" /></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="address in addresses" class="{{address.isDefault ? 'active' : 'normal'}}">
+            <td>{{ address.label }}</td>
+            <td>
+                {{ address.fullName }}
+                <!--span data-ng-show="address.phone != ''" class="phone">t: {{address.phone}}</span-->
+            </td>
+            <td>{{ address.address1 }}</td>
+            <td>{{ address.address2 }}</td>
+            <td>{{ address.locality }}</td>
+            <td>{{ address.region }}</td>
+            <td>{{ address.countryCode }}</td>
+            <td>{{ address.postalCode }}</td>
+            <td>
+                <div class="pull-right" style="position: relative;">
+                    <a class="btn btn-info" href="#" data-toggle="dropdown">
+                        <localize key="general_actions">Actions</localize>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu umb-actions" role="menu" aria-labelledby="dLabel">
+                        <li><a data-ng-click="openAddressAddEditDialog(address)"><localize key="merchelloCustomers_editAddress" /></a></li>
+                        <li><a data-ng-click="openDeleteAddressDialog(address)"><localize key="merchelloCustomers_deleteAddress" /></a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <a data-ng-click="openAddressAddEditDialog()" class="btn btn-info"><localize key="merchelloCustomers_addNewAddress" /></a>
+</div>

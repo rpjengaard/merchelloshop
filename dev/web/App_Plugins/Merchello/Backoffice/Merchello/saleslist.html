@@ -1,0 +1,29 @@
+﻿<div ng-controller="Merchello.Backoffice.SalesListController" ng-show="loaded">
+  <div class="umb-panel umb-editor-wrapper">
+    
+    <div class="umb-editor-header umb-panel-header">
+      <div class="umb-panel-header-content-wrapper">
+
+        <div class="umb-panel-header-content">
+          <div class="umb-panel-header-left-side -top-position">
+            <div class="umb-panel-header-title-wrapper">
+              <div class="umb-panel-header-name">
+                <localize key="merchelloOrder_sales"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <merchello-tabs tabs="tabs"></merchello-tabs>
+      </div>
+    </div>
+
+    <merchello-panel>
+      <!-- Tabular Order List -->
+      <div class="merchello-pane">
+        <merchello-list-view builder="invoiceDisplayBuilder" load="load" get-column-value="getColumnValue" entity-type="entityType" include-date-filter/>
+      </div>
+    </merchello-panel>
+
+  </div>
+</div>

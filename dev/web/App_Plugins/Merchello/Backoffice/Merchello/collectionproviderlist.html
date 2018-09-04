@@ -1,0 +1,49 @@
+<div data-ng-controller="Merchello.Backoffice.CollectionProviderListController" data-ng-show="loaded">
+    <umb-panel>
+            
+      <div class="umb-editor-header umb-panel-header">
+        <div class="umb-panel-header-content-wrapper">
+
+          <div class="umb-panel-header-content">
+            <div class="umb-panel-header-left-side -top-position">
+              <div class="umb-panel-header-title-wrapper">
+                <div class="umb-panel-header-name">
+                  <localize key="merchelloCollections_providers" />
+                </div>
+              </div>
+              <div class="umb-editor-header__actions-menu">
+                <div class="btn-toolbar pull-right umb-btn-toolbar">
+                  <div class="btn-group">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <merchello-tabs tabs="tabs"></merchello-tabs>
+        </div>
+      </div>    
+
+      <merchello-panel>
+            <div class="merchello-pane row-fluid">
+                <!-- Static Collection Providers -->
+                <div class="control-group umb-control-group">
+                    <label class="merchello-control-label">
+                        <localize key="merchelloCollections_staticProviders" />
+                        <small><localize key="merchelloCollections_staticProvidersInfo" /></small>
+                    </label>
+
+                </div>
+                <!-- Unique Collection Providers -->
+                <!--div class="control-group umb-control-group">
+                    <label class="merchello-control-label">
+                        <localize key="merchelloGatewayProvider_paymentProvider" />
+                        <small><localize key="merchelloGatewayProvider_paymentProviderHelper" /></small>
+                    </label>
+
+                </div-->
+
+            </div>
+        </merchello-panel>
+    </umb-panel>
+</div>

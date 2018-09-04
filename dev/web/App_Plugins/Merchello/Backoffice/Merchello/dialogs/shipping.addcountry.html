@@ -1,0 +1,41 @@
+<div class="umb-panel merchello-side-panel" ng-controller="Merchello.GatewayProviders.Dialogs.ShippingAddCountryController">
+    <div class="umb-overlay umb-overlay-right">
+        <form class="umb-overlay__form">
+
+            <div class="umb-overlay-header">
+                <h4 class="umb-overlay__title"><localize key="merchelloShippingCountry_addCountry" /></h4>
+            </div>
+
+            <div class="umb-overlay-container form-horizontal merchello-panel-body">
+              
+                    <div class="form-group country-dropdown control-group">
+                        <label for="country-name"><localize key="merchelloShippingCountry_typeCountryName" /></label>
+                        <select data-ng-model="dialogData.selectedCountry"
+                                data-ng-options="country.name for country in dialogData.availableCountries | orderBy:'name'" class="umb-editor form-control">
+                            <option style="display: none" value=""><localize key="merchelloShippingCountry_noneSelected" /></option>
+                        </select>                   
+                    </div>
+
+            </div>
+
+            <div class="umb-overlay-drawer">
+                <div class="umb-overlay-drawer__align-right">
+                    
+                    <div class="umb-button">
+                        <a href data-ng-click="close()" class="btn btn-link">
+                            <localize key="general_cancel"></localize>
+                        </a>
+                    </div>
+
+                    <div class="umb-button">
+                        <button class="btn btn-success" data-ng-click="submit(dialogData)">
+                            <localize key="buttons_save"></localize>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
