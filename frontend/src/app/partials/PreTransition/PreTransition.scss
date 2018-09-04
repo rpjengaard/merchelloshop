@@ -1,0 +1,82 @@
+@import '~styles/variables';
+
+@keyframes transition-overlay-in {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes transition-overlay-out {
+	from {
+		transform: scaleX(1);
+	}
+	to {
+		transform: scaleX(0);
+	}
+}
+
+@keyframes transition-spinner {
+	to {
+		transform: rotate(1turn);
+	}
+}
+
+.transition-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: calc(100vw + 43.07vh);
+	transform-origin: 0% 0%;
+	background-color: #fff;
+	z-index: 99999;
+	transform: scaleX(1);
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	&.pre-anim-enter-active {
+		animation: transition-overlay-in 0.4s 0s $CubicInOut both;
+	}
+
+	&.pre-anim-leave-active {
+		transform-origin: 100% 0%;
+		animation: transition-overlay-out 0.5s 0.1s $SmoothOut both;
+	}
+}
+
+.transition-spinner {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 999999;
+	transform-origin: 0% 0%;
+	// animation: transition-spinner-2 1.2s linear infinite both;
+
+	&:before {
+		content: '';
+		margin-top: -20px;
+		margin-left: -20px;
+		display: block;
+		width: 40px;
+		height: 40px;
+		border-radius: 40px;
+		border: 2px solid $color-1;
+		border-top-color: transparent;
+		animation: transition-spinner 0.4s linear infinite both,
+			fade-in 1s 1s both;
+	}
+
+	&.pre-spinner-anim-leave-active {
+		animation: fade-out 0.5s forwards;
+	}
+}

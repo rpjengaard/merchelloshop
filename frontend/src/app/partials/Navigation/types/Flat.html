@@ -1,0 +1,21 @@
+<nav :class="['navigation', `navigation-${type}`]">
+	<ul class="navigation-list">
+		<li
+			v-for="item in items"
+			v-if="item && item.isVisible"
+			:class="{
+				active: contentPath.indexOf(item.id) > -1,
+				current: currentPage.id === item.id,
+			}"
+		>
+			<div class="nav-link">
+				<router-link
+					@focus.native="type !== 'flat' ? toggleFocus(item.id) : null"
+					:to="item.url"
+					v-html="item.title"
+				/>
+			</div>
+		</li>
+		<li v-if="loading">...</li>
+	</ul>
+</nav>

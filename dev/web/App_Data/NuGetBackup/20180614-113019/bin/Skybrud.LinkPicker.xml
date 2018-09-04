@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skybrud.LinkPicker</name>
+    </assembly>
+    <members>
+        <member name="T:Skybrud.LinkPicker.Extensions.PublishedContentExtensions">
+            <summary>
+            Various extension methods for <see cref="T:Umbraco.Core.Models.IPublishedContent"/> and the LinkPicker.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Extensions.PublishedContentExtensions.GetLinkPickerItem(Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets the first link item from the <see cref="T:Skybrud.LinkPicker.LinkPickerList"/> of the property with the specified
+            <paramref name="propertyAlias"/>.
+            
+            If the property isn't a link picker (or the list is empty), an empty item
+            will be returned instead. You can use the <see cref="P:Skybrud.LinkPicker.LinkPickerItem.IsValid"/> property to check whether
+            the returned item is valid.
+            </summary>
+            <param name="content">The published content to read the property from.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+            <returns>An instance of <see cref="T:Skybrud.LinkPicker.LinkPickerItem"/>.</returns>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Extensions.PublishedContentExtensions.GetLinkPickerList(Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets the <see cref="T:Skybrud.LinkPicker.LinkPickerList"/> of the property with the specified <paramref name="propertyAlias"/>.
+            
+            If the property isn't a link picker, an empty list will be returned instead. You can use the
+            <see cref="P:Skybrud.LinkPicker.LinkPickerList.IsValid"/> property to check whether the returned list is valid (the list is also
+            considered invalid if it doesn't have any items).
+            </summary>
+            <param name="content">The published content to read the property from.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+            <returns>An instance of <see cref="T:Skybrud.LinkPicker.LinkPickerList"/>.</returns>
+        </member>
+        <member name="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigColumns">
+            <summary>
+            Class representing the columns configuration of a link picker.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigColumns.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigColumns"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigColumns"/>.</returns>
+        </member>
+        <member name="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTypes">
+            <summary>
+            Class representing the types configuration of a link picker.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTypes.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTypes"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTypes"/>.</returns>
+        </member>
+        <member name="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle">
+            <summary>
+            Class representing the title configuration of a link picker.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle"/>.</returns>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.Show">
+            <summary>
+            Gets whether the title of the link picker list should be shown.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.Placeholder">
+            <summary>
+            Gets the placeholder title of the link picker.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.HasPlaceholder">
+            <summary>
+            Gets whether the <see cref="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.Placeholder"/> property has a value.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.Default">
+            <summary>
+            Gets the default (fallback) title of the link picker.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.HasDefault">
+            <summary>
+            Gets whether the <see cref="P:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfigTitle.Default"/> property has a value.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Converters.LinkPickerGridConverter.ConvertControlValue(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridControlValue@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue"/>.
+            </summary>
+            <param name="control">A reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.</param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the control value.</param>
+            <param name="value">The converted control value.</param>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Converters.LinkPickerGridConverter.ConvertEditorConfig(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig"/>.
+            </summary>
+            <param name="editor"></param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the editor config.</param>
+            <param name="config">The converted editor config.</param>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Converters.LinkPickerGridConverter.GetControlWrapper(Skybrud.Umbraco.GridData.GridControl,Skybrud.Umbraco.GridData.Rendering.GridControlWrapper@)">
+            <summary>
+            Gets an instance <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/> for the specified <paramref name="control"/>.
+            </summary>
+            <param name="control">The control to be wrapped.</param>
+            <param name="wrapper">The wrapper.</param>
+        </member>
+        <member name="T:Skybrud.LinkPicker.LinkPickerList">
+            <summary>
+            Class representing the model for the LinkPicker editor.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerList.#ctor">
+            <summary>
+            Initializes a new instance with an empty model.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerList.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <see cref="P:Skybrud.LinkPicker.LinkPickerList.JObject"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="P:Skybrud.LinkPicker.LinkPickerList.JObject"/> representing the link picker list.</param>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerList.#ctor(Newtonsoft.Json.Linq.JArray)">
+            <summary>
+            Initializes a new instance based on the specified <see cref="T:Newtonsoft.Json.Linq.JArray"/>.
+            </summary>
+            <param name="array">An instance of <see cref="T:Newtonsoft.Json.Linq.JArray"/> representing the link picker list.</param>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerList.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <see cref="P:Skybrud.LinkPicker.LinkPickerList.JObject"/> into an instance of <see cref="T:Skybrud.LinkPicker.LinkPickerList"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="P:Skybrud.LinkPicker.LinkPickerList.JObject"/> representing the link picker list.</param>
+            <returns>Returns an instacne of <see cref="T:Skybrud.LinkPicker.LinkPickerList"/>, or <code>null</code> if <code>obj</code> is <code>null</code>.</returns>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerList.Parse(Newtonsoft.Json.Linq.JArray)">
+            <summary>
+            Parses the specified <see cref="T:Newtonsoft.Json.Linq.JArray"/> into an instance of <see cref="T:Skybrud.LinkPicker.LinkPickerList"/>.
+            </summary>
+            <param name="array">An instance of <see cref="T:Newtonsoft.Json.Linq.JArray"/> representing the link picker list.</param>
+            <returns>Returns an instacne of <see cref="T:Skybrud.LinkPicker.LinkPickerList"/>, or <code>null</code> if <code>array</code> is <code>null</code>.</returns>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerList.Deserialize(System.String)">
+            <summary>
+            Deseralizes the specified JSON string into an instance of <see cref="T:Skybrud.LinkPicker.LinkPickerList"/>.
+            </summary>
+            <param name="json">The raw JSON to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.JObject">
+            <summary>
+            Gets a reference to the <see cref="P:Skybrud.LinkPicker.LinkPickerList.JObject"/> the link picker list was parsed from (if parsed from a JSON object).
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.Title">
+            <summary>
+            Gets the title of the control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.HasTitle">
+            <summary>
+            Gets whether the control has a title.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.Items">
+            <summary>
+            Gets an array of all link items.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.HasItems">
+            <summary>
+            Gets whether the link picker list has any items.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.Count">
+            <summary>
+            Gets the total amount of link items.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerList.IsValid">
+            <summary>
+            Gets whether the link picker list is valid (alias of <see cref="P:Skybrud.LinkPicker.LinkPickerList.HasItems"/>).
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Values.GridControlLinkPickerValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.LinkPicker.Grid.Values.GridControlLinkPickerValue"/> from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Values.GridControlLinkPickerValue.Control">
+            <summary>
+            Gets a reference to the parent control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.Grid.Values.GridControlLinkPickerValue.IsValid">
+            <summary>
+            Gets whether the link picker list is valid (alias of <see cref="P:Skybrud.LinkPicker.LinkPickerList.HasItems"/>).
+            </summary>
+        </member>
+        <member name="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfig">
+            <summary>
+            Class representing the configuration of a link picker.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfig.Parse(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfig"/>.
+            </summary>
+            <param name="editor">The parent editor.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+            <returns>An instance of <see cref="T:Skybrud.LinkPicker.Grid.Config.GridEditorLinkPickerConfig"/>.</returns>
+        </member>
+        <member name="T:Skybrud.LinkPicker.LinkPickerItem">
+            <summary>
+            Class representing a single link item.
+            </summary>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerItem.#ctor(System.Int32,System.String,System.String,System.String,Skybrud.LinkPicker.LinkPickerMode)">
+            <summary>
+            Initializes a new link picker item.
+            </summary>
+            <param name="id">The ID of the content or media item.</param>
+            <param name="name">The name (text) of the link.</param>
+            <param name="url">The URL of the link.</param>
+            <param name="target">The target of the link.</param>
+            <param name="mode">The mode of the link - either <see cref="F:Skybrud.LinkPicker.LinkPickerMode.Content"/>,
+            <see cref="F:Skybrud.LinkPicker.LinkPickerMode.Media"/> or <see cref="F:Skybrud.LinkPicker.LinkPickerMode.Url"/>.</param>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerItem.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <code>obj</code> into an instance of <see cref="T:Skybrud.LinkPicker.LinkPickerItem"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="P:Skybrud.LinkPicker.LinkPickerItem.JObject"/> to be parsed.</param>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerItem.GetFromContent(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Initializes a new link picker item from an instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing a content item.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing a content item.</param>
+            <returns>Returns the created <see cref="T:Skybrud.LinkPicker.LinkPickerItem"/> instance.</returns>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerItem.GetFromMedia(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Initializes a new link picker item from an instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing a media item.
+            </summary>
+            <param name="media">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing a media item.</param>
+            <returns>Returns the created <see cref="T:Skybrud.LinkPicker.LinkPickerItem"/> instance.</returns>
+        </member>
+        <member name="M:Skybrud.LinkPicker.LinkPickerItem.GetFromUrl(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new link picker item from the specified <code>url</code>, <code>name</code> and <code>target</code>.
+            </summary>
+            <param name="url">The URL of the link.</param>
+            <param name="name">The name (text) of the link.</param>
+            <param name="target">The target of the link.</param>
+            <returns>Returns the created <see cref="T:Skybrud.LinkPicker.LinkPickerItem"/> instance.</returns>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.JObject">
+            <summary>
+            Gets a reference to the <see cref="P:Skybrud.LinkPicker.LinkPickerItem.JObject"/> the item was parsed from.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.Id">
+            <summary>
+            Gets the ID of the selected content or media. If an URL has been selected, this will return <code>0</code>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.Name">
+            <summary>
+            Gets the name of the link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.Url">
+            <summary>
+            Gets the URL of the link. Since the URL of a content or media item may change over time (eg. if renamed or
+            moved), this property will attempt to retrieve the current URL from the relevant Umbraco cache.
+            
+            If <see cref="P:Skybrud.LinkPicker.LinkPickerItem.Mode"/> is <see cref="F:Skybrud.LinkPicker.LinkPickerMode.Content"/>, the URL of the content item will be
+            retrieved through the content cache (if available). In a similar way, if <see cref="P:Skybrud.LinkPicker.LinkPickerItem.Mode"/> is
+            <see cref="F:Skybrud.LinkPicker.LinkPickerMode.Media"/> the URL of the media item will be retrieved through the media cache (if
+            available). The original URL as saved in Umbraco can be accessed through the <see cref="P:Skybrud.LinkPicker.LinkPickerItem.RawUrl"/> property.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.Target">
+            <summary>
+            Gets the link target.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.Mode">
+            <summary>
+            Gets the mode (or type) of the link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.IsValid">
+            <summary>
+            Gets whether the link is valid.
+            </summary>
+        </member>
+        <member name="P:Skybrud.LinkPicker.LinkPickerItem.RawUrl">
+            <summary>
+            Gets the raw URL as saved in Umbraco. The URL may be wrong if referencing content or media that has been renamed, moved or similar.
+            </summary>
+        </member>
+        <member name="T:Skybrud.LinkPicker.LinkPickerMode">
+            <summary>
+            Enum describing the type of the link.
+            </summary>
+        </member>
+        <member name="F:Skybrud.LinkPicker.LinkPickerMode.Url">
+            <summary>
+            Describes a link that is an external URL.
+            </summary>
+        </member>
+        <member name="F:Skybrud.LinkPicker.LinkPickerMode.Content">
+            <summary>
+            Describes a link that is a reference to an internal content node in Umbraco.
+            </summary>
+        </member>
+        <member name="F:Skybrud.LinkPicker.LinkPickerMode.Media">
+            <summary>
+            Describes a link that is a reference to an internal media node in Umbraco.
+            </summary>
+        </member>
+    </members>
+</doc>

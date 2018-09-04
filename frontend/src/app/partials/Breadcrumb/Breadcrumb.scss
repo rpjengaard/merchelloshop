@@ -1,0 +1,46 @@
+.breadcrumb {
+	font-size: 12px;
+
+	ol {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+		display: flex;
+
+	}
+
+	li {
+		display: inline-flex;
+		color: #ddd;
+		margin-left: 0;
+
+		&:after {
+			content: '>';
+			display: inline-block;
+			flex-shrink: 0;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+
+		&:last-child:after {
+			content: none;
+		}
+
+		.nav-link {
+			display: inline-block;
+			flex-shrink: 1;
+		}
+
+		a {
+			color: inherit;
+
+			&:hover {
+				color: #34495e;
+			}
+		}
+
+		&.current a {
+			color: #888;
+		}
+	}
+}

@@ -1,0 +1,42 @@
+<nav
+	v-if="!loading"
+	:class="['navigation', `navigation-${type}`, { hovering: hovering !== -1 }]"
+>
+	<ul class="navigation-list">
+		<li
+			v-for="item in items"
+			v-if="item && item.isVisible"
+			:class="{
+				active: contentPath.indexOf(item.id) > -1,
+				current: currentPage.id === item.id,
+			}"
+			@mouseleave="toggleFocus()"
+			@focusout="toggleFocus()"
+		>
+			<div
+				class="nav-link"
+				@mouseenter="toggleFocus(item)"
+				@focusin="toggleFocus(item)"
+			>
+				<router-link
+					:to="item.url"
+					v-text="item.title"
+					@touchstart.native.prevent="!isHovering(item.id)
+						? toggleFocus(item)
+						: toggleFocus()"
+				/>
+
+				<div
+					v-if="item.hasChildren && isHovering(item.id)"
+					class="navigation-hover-submenu"
+				>
+					<Navigation
+						:entry="item.id"
+						:levels="1"
+						tabindex="1"
+					/>
+				</div>
+			</div>
+		</li>
+	</ul>
+</nav>

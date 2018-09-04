@@ -1,0 +1,96 @@
+@function col($cols: 1, $breakpoint: 5) {
+	@return map-get($col-size, $breakpoint) * $cols;
+}
+
+@function row($rows: 1, $breakpoint: 5) {
+	@return map-get($row-size, $breakpoint) * $rows;
+}
+
+@function getKeys($from, $to) {
+	$values: ();
+	@each $key in map-keys($breakpoints) {
+		@if $key >= $from and $key <= $to {
+			$values: append($values, $key);
+		}
+	}
+
+	@return $values;
+}
+
+@function ltTarget($_breakpoint) {
+	@return nth(map-keys($breakpoints), index(map-keys($breakpoints), $_breakpoint) + 1);
+ }
+
+@function lastInGlobalBreakpoints($_breakpoint) {
+	@return index(map-keys($breakpoints), $_breakpoint) == length($breakpoints);
+}
+
+@function firstInGlobalBreakpoints($_breakpoint) {
+	@return index(map-keys($breakpoints), $_breakpoint) == 1;
+}
+
+@function rootStylingRequested($_from, $_keys, $_breakpoint) {
+	@return $_from == 0 or $_from == null and index($_keys, $_breakpoint) == 1;
+}
+
+@mixin rowOrCol($properties, $factor, $breakpoint, $function: 'col') {
+	@include properties($properties, call(get-function($function), $factor, $breakpoint));
+}
+
+@mixin map-values($properties, $factor: 1, $from: null, $to: null, $function: 'col') {
+	$fromKey: if($from != null, $from, 0); // 0 is for ensuring first index
+	$toKey: if($to != null, $to, 1000); // 1000 is for ensuring last index
+
+	$keys: getKeys($fromKey, $toKey);
+
+	@each $breakpoint in $keys {
+		// This if for targeting root aka. less than first index in global breakpoint maps
+		@if rootStylingRequested($from, $keys, $breakpoint) and firstInGlobalBreakpoints($breakpoint) {
+			@include lt($breakpoint) {
+				@include rowOrCol(
+					$properties,
+					$factor,
+					$breakpoint,
+					$function
+				);
+			}
+		}
+
+		// Always contain styling to range blocks unless current $breakpoint is the last in
+		// global breakpoint map
+		@if $breakpoint != $to and not lastInGlobalBreakpoints($breakpoint){
+			@include bt($breakpoint, ltTarget($breakpoint)) {
+				@include rowOrCol(
+					$properties,
+					$factor,
+					$breakpoint,
+					$function
+				);
+			}
+		}
+		@else if lastInGlobalBreakpoints($breakpoint) {
+			@include gt($breakpoint) {
+				@include rowOrCol(
+					$properties,
+					$factor,
+					$breakpoint,
+					$function
+				);
+			}
+		}
+	}
+}
+
+@mixin col($properties, $cols: 1, $from: null, $to: null) {
+	@include map-values($properties, $cols, $from, $to, 'col');
+}
+
+@mixin row($properties, $rows: 1, $from: null, $to: null) {
+	@include map-values($properties, $rows, $from, $to, 'row');
+}
+
+// we keep grid() mixin for backwards compatibility
+// but it's just col() - so use that
+@mixin grid($properties, $cols: 1, $from: null, $to: null) {
+	@include col($properties, $cols, $from, $to);
+}

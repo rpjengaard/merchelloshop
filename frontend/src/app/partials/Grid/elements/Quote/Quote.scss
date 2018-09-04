@@ -1,0 +1,15 @@
+@import "~styles/variables";
+
+.grid-quote {
+	@include col(width, 12);
+	@include col(margin-left, 5);
+	position: relative;
+	margin-right: auto;
+
+	blockquote {
+		@include font-size(70px);
+		font-weight: $bold;
+		line-height: 1;
+		color: $color-1;
+	}
+}

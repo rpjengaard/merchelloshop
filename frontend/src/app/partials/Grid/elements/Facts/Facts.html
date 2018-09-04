@@ -1,0 +1,16 @@
+<div class="grid-facts">
+	<div class="grid-facts-container">
+		<div
+			class="grid-fact"
+			v-for="(fact, index) in facts"
+			:key="index"
+		>
+			<h4 v-text="fact.title" />
+
+			<div
+				class="grid-fact-text"
+				v-html="fact.text"
+			/>
+		</div>
+	</div>
+</div>

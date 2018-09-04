@@ -1,0 +1,40 @@
+<div class="grid-content">
+		<div
+			v-if="section"
+			v-for="section in grid.sections"
+			:class="['section', `section-${section.grid}`]"
+		>
+			<div
+				v-if="$_get(row, 'areas[0].controls[0].editor')"
+				v-for="(row, rIndex) in section.rows"
+				:class="getClassNames('row', section.rows, rIndex)"
+			>
+				<div
+					v-if="area"
+					v-for="(area, aIndex) in row.areas"
+					:class="getClassNames('area', row.areas, aIndex)"
+				>
+					<div
+						v-if="control && control.editor"
+						v-for="control in area.controls"
+						:class="['control', componentName(control.editor.alias)]"
+					>
+						<component
+							v-if="!missingElements.includes(componentName(control.editor.alias))"
+							:key="row.id"
+							:computedName="componentName(control.editor.alias)"
+							:is="componentName(control.editor.alias)"
+							:content="control"
+							:in-multicolumn="row.areas.length > 1"
+						/>
+						<Placeholder
+							v-else
+							:id="row.id"
+							:name="componentName(control.editor.alias)"
+							:content="control"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

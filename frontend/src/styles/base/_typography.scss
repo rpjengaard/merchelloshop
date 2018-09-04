@@ -1,0 +1,68 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin-bottom: $base-margin;
+	font-weight: $normal;
+	color: inherit;
+	line-height: $baseline;
+
+	li > & {
+		margin-bottom: 0;
+	}
+}
+
+h1 {
+	@include font-size(30px);
+	@include lt(10) {
+		font-size: 25px;
+	}
+}
+
+h2 {
+	@include font-size(32px);
+	line-height: 1.3;
+}
+
+h3 {
+	@include font-size(24px);
+	line-height: 1.3;
+}
+
+a {
+	color: $link-color;
+	text-decoration: none;
+}
+
+em,
+i {
+	font-style: italic;
+}
+
+strong,
+b {
+	font-weight: $medium;
+}
+
+
+ul,
+ol,
+table,
+img,
+p {
+	margin-bottom: $base-margin;
+}
+
+ul,
+ol {
+	padding-left: 5px;
+
+	li {
+		margin-left: 15px;
+	}
+}
+
+ul ul {
+	margin-bottom: 0;
+}

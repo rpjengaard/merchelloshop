@@ -1,0 +1,29 @@
+<div class="grid-accordion">
+	<h2
+		v-if="$_get(value, 'heading')"
+		v-text="$_get(value, 'heading')"
+	/>
+	<ul
+		class="sky-accordions"
+		v-if="value"
+	>
+		<SkyAccordion
+			v-for="(acc, index) in value.accordion"
+			v-if="acc"
+			:id="acc.heading"
+			:key="index"
+			:class="{'small': acc.useSmallImage && acc.image}"
+		>
+			<span slot="title">
+				<h4>{{acc.heading}}</h4>
+				<SvgWedge class="svg-wedge" />
+			</span>
+
+			<div
+				v-if="acc.text"
+				v-html="acc.text"
+				class="rte-content"
+			/>
+		</SkyAccordion>
+	</ul>
+</div>

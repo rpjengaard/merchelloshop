@@ -1,0 +1,9 @@
+{
+	"presets": [
+		["env"]
+	],
+	"ignore": [],
+	"plugins": [
+		"syntax-dynamic-import"
+	]
+}

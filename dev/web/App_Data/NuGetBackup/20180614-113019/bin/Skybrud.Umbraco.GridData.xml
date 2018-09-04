@@ -1,0 +1,1755 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skybrud.Umbraco.GridData</name>
+    </assembly>
+    <members>
+        <member name="T:Skybrud.Umbraco.GridData.Config.GridEditorConfigBase">
+            <summary>
+            Abstract class with a basic implementation of the <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue"/> interface.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Json.GridJsonObject">
+            <summary>
+            Class representing an object derived from an instance of <see cref="P:Skybrud.Umbraco.GridData.Json.GridJsonObject.JObject"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.GridJsonObject.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <param name="obj">The underlying instance of <see cref="P:Skybrud.Umbraco.GridData.Json.GridJsonObject.JObject"/>.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Json.GridJsonObject.JObject">
+            <summary>
+            Gets a reference to the underlying instance of <see cref="P:Skybrud.Umbraco.GridData.Json.GridJsonObject.JObject"/>.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig">
+            <summary>
+            Interface describing a grid editor config.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig.Editor">
+            <summary>
+            Gets a reference to the parent editor of the configuration.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Config.GridEditorConfigBase.#ctor(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="editor"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="editor">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridEditor"/> representing the parent editor.</param>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the configuration of the editor.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorConfigBase.Editor">
+            <summary>
+            Gets a reference to the parent editor of the configuration.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfig">
+            <summary>
+            Class representing the configuration of a media editor.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfig.Parse(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfig"/> from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="editor">The parent editor.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfig.Size">
+            <summary>
+            Gets an object describing the desired size of the media.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfigSize">
+            <summary>
+            Class describing the desired size of a media (image).
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfigSize.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfigSize"/> from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfigSize.Width">
+            <summary>
+            Gets the desired width of the media.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorMediaConfigSize.Height">
+            <summary>
+            Gets the desired height of the media.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig">
+            <summary>
+            Class representing the configuration of a text editor.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.Parse(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig"/> from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="editor">The parent editor.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.Style">
+            <summary>
+            Gets the style properties for the text.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.HasStyle">
+            <summary>
+            Gets whether the <see cref="P:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.Style"/> property has a value.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.Markup">
+            <summary>
+            Gets the markup for the text.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.HasMarkup">
+            <summary>
+            Gets whether the <see cref="P:Skybrud.Umbraco.GridData.Config.GridEditorTextConfig.Markup"/> property has a value.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Converters.Fanoe.FanoeGridConverter">
+            <summary>
+            Converter for Grid editors from the Fanoe starter kit.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Interfaces.IGridConverter">
+            <summary>
+            Interface describing a Grid converter.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Interfaces.IGridConverter.ConvertControlValue(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridControlValue@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <code>JToken</code> representing the control value.</param>
+            <param name="value">The converted value.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Interfaces.IGridConverter.ConvertEditorConfig(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig"/>.
+            </summary>
+            <param name="editor"></param>
+            <param name="token">The instance of <code>JToken</code> representing the editor config.</param>
+            <param name="config">The converted config.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Interfaces.IGridConverter.GetControlWrapper(Skybrud.Umbraco.GridData.GridControl,Skybrud.Umbraco.GridData.Rendering.GridControlWrapper@)">
+            <summary>
+            Gets an instance <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/> for the specified <paramref name="control"/>.
+            </summary>
+            <param name="control">The control to be wrapped.</param>
+            <param name="wrapper">The wrapper.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.Fanoe.FanoeGridConverter.ConvertControlValue(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridControlValue@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the control value.</param>
+            <param name="value">The converted value.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.Fanoe.FanoeGridConverter.ConvertEditorConfig(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig"/>.
+            </summary>
+            <param name="editor"></param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the editor config.</param>
+            <param name="config">The converted config.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.Fanoe.FanoeGridConverter.GetControlWrapper(Skybrud.Umbraco.GridData.GridControl,Skybrud.Umbraco.GridData.Rendering.GridControlWrapper@)">
+            <summary>
+            Gets an instance <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/> for the specified <paramref name="control"/>.
+            </summary>
+            <param name="control">The control to be wrapped.</param>
+            <param name="wrapper">The wrapper.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Converters.Umbraco.UmbracoGridConverter">
+            <summary>
+            Converter for handling the default editors (and their values and configs) of Umbraco.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.Umbraco.UmbracoGridConverter.ConvertControlValue(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridControlValue@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the control value.</param>
+            <param name="value">The converted value.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.Umbraco.UmbracoGridConverter.ConvertEditorConfig(Skybrud.Umbraco.GridData.GridEditor,Newtonsoft.Json.Linq.JToken,Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig@)">
+            <summary>
+            Converts the specified <paramref name="token"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridEditorConfig"/>.
+            </summary>
+            <param name="editor"></param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the editor config.</param>
+            <param name="config">The converted config.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.Umbraco.UmbracoGridConverter.GetControlWrapper(Skybrud.Umbraco.GridData.GridControl,Skybrud.Umbraco.GridData.Rendering.GridControlWrapper@)">
+            <summary>
+            Gets an instance <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/> for the specified <paramref name="control"/>.
+            </summary>
+            <param name="control">The control to be wrapped.</param>
+            <param name="wrapper">The wrapper.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Converters.GridConverterCollection">
+            <summary>
+            Collection of <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridConverter"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.Add(Skybrud.Umbraco.GridData.Interfaces.IGridConverter)">
+            <summary>
+            Adds the specified <paramref name="converter"/> to the collection.
+            </summary>
+            <param name="converter">The converter to be added.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.AddAt(System.Int32,Skybrud.Umbraco.GridData.Interfaces.IGridConverter)">
+            <summary>
+            Adds the specified <paramref name="converter"/> to the collection at <paramref name="index"/>.
+            </summary>
+            <param name="index">The index.</param>
+            <param name="converter">The converter to be added.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.Clear">
+            <summary>
+            Clears the collection.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.Remove(Skybrud.Umbraco.GridData.Interfaces.IGridConverter)">
+            <summary>
+            Removes the specified <paramref name="converter"/> from the collection.
+            </summary>
+            <param name="converter">The converter to be removed.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.Remove``1">
+            <summary>
+            Removes all converters of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the converters to be removed.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.RemoveAt(System.Int32)">
+            <summary>
+            Removes the converter at the specified <paramref name="index"/>.
+            </summary>
+            <param name="index">The index of the converter to be removed.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <returns>A <see cref="T:System.Collections.Generic.List`1.Enumerator"/> for the <see cref="T:System.Collections.Generic.List`1"/>.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Converters.GridConverterCollection.Count">
+            <summary>
+            Gets the amount of converters added to the collection.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods">
+            <summary>
+            Class holding various extension methods for using the typed Grid.
+            </summary>
+            <summary>
+            Class holding various extension methods for using the typed Grid.
+            </summary>
+            <summary>
+            Class holding various extension methods for using the typed Grid.
+            </summary>
+            <summary>
+            Class holding various extension methods for using the typed Grid.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.DefaultPropertyAlias">
+            <summary>
+            Gets the default property alias of the Grid.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.DefaultFramework">
+            <summary>
+            Gets the default framework for rendering the Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridSection(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridSection)">
+            <summary>
+            Gets the HTML of the specified <paramref name="section"/>.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the row.</param>
+            <param name="section">The section to be rendered.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridSection(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridSection,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="section"/>.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the row.</param>
+            <param name="section">The section to be rendered.</param>
+            <param name="partial">The partial view to be used for the rendering.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridSectionOrFallback(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridSection,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="section"/> or falls back to <paramref name="fallbackPartial"/> if no section view is found.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the section.</param>
+            <param name="section">The section to be rendered.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if no section partial is found by <see cref="P:Skybrud.Umbraco.GridData.GridSection.Name"/> for the rendering.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridSectionOrFallback(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridSection,System.String,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="section" /> or falls back to <paramref name="fallbackPartial"/> if <paramref name="partial"/> isn't found.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper" /> used for rendering the section.</param>
+            <param name="section">The section to be rendered.</param>
+            <param name="partial">The partial view to be used for the rendering.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if <paramref name="partial"/> isn't found.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString" />.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridRow(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridRow)">
+            <summary>
+            Gets the HTML of the specified <paramref name="row"/>.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the row.</param>
+            <param name="row">The row to be rendered.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridRow(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridRow,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="row"/>.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the row.</param>
+            <param name="row">The row to be rendered.</param>
+            <param name="partial">The partial view to be used for the rendering.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridRowOrFallback(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridRow,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="row"/> or falls back to <paramref name="fallbackPartial"/> if no row view is found.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the row.</param>
+            <param name="row">The row to be rendered.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if no row partial is found by <see cref="P:Skybrud.Umbraco.GridData.GridRow.Name"/> for the rendering.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridRowOrFallback(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridRow,System.String,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="row" /> or falls back to <paramref name="fallbackPartial"/> if <paramref name="partial"/> isn't found.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper" /> used for rendering the row.</param>
+            <param name="row">The row to be rendered.</param>
+            <param name="partial">The partial view to be used for the rendering.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if <paramref name="partial"/> isn't found.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString" />.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridControl(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridControl)">
+            <summary>
+            Gets the HTML of the specified <paramref name="control"/>.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the control.</param>
+            <param name="control">The control to be rendered.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridControl(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridControl,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="control"/>.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the control.</param>
+            <param name="control">The control to be rendered.</param>
+            <param name="partial">The partial view to be used for the rendering.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridControlOrFallback(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridControl,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="control"/> or falls back to <paramref name="fallbackPartial"/> if no control view is found.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the control.</param>
+            <param name="control">The control to be rendered.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if no control partial is found by <see cref="P:Skybrud.Umbraco.GridData.GridSection.Name"/> for the rendering.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.RenderGridControlOrFallback(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridControl,System.String,System.String)">
+            <summary>
+            Gets the HTML of the specified <paramref name="control" /> or falls back to <paramref name="fallbackPartial"/> if <paramref name="partial"/> isn't found.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper" /> used for rendering the control.</param>
+            <param name="control">The control to be rendered.</param>
+            <param name="partial">The partial view to be used for the rendering.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if <paramref name="partial"/> isn't found.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString" />.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGrid(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Gets the model for the typed Grid.
+            </summary>
+            <param name="content">The parent content item.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGrid(Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets the model for the typed Grid.
+            </summary>
+            <param name="content">The parent content item.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetGridModel(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Gets the model for the typed Grid.
+            </summary>
+            <param name="content">The parent content item.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetGridModel(Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets the model for the typed Grid.
+            </summary>
+            <param name="content">The parent content item.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(System.Web.Mvc.HtmlHelper,Skybrud.Umbraco.GridData.GridDataModel,System.String)">
+            <summary>
+            Gets the HTML for the Grid model based on the specified <paramref name="framework"/>.
+            </summary>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="model">The Grid model to be rendered.</param>
+            <param name="framework">The framework used to render the Grid.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(System.Web.Mvc.HtmlHelper,Umbraco.Core.Models.IPublishedProperty,System.String)">
+            <summary>
+            Gets the HTML for the Grid model based on the specified <paramref name="framework"/>.
+            </summary>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="property">The property holding the Grid model.</param>
+            <param name="framework">The framework used to render the Grid.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(System.Web.Mvc.HtmlHelper,Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Gets the HTML for the Grid model based on default options.
+            </summary>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="content">The parent content item.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(System.Web.Mvc.HtmlHelper,Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets the HTML for the Grid model based on default options.
+            </summary>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="content">The parent content item.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(System.Web.Mvc.HtmlHelper,Umbraco.Core.Models.IPublishedContent,System.String,System.String)">
+            <summary>
+            Gets the HTML for the Grid model.
+            </summary>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="content">The parent content item.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+            <param name="framework">The framework used to render the Grid.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(Umbraco.Core.Models.IPublishedProperty,System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Gets the HTML for the Grid model.
+            </summary>
+            <param name="property">The property holding the Grid model.</param>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="framework">The framework used to render the Grid.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(Umbraco.Core.Models.IPublishedContent,System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Gets the HTML for the Grid model.
+            </summary>
+            <param name="content">The parent content item.</param>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(Umbraco.Core.Models.IPublishedContent,System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Gets the HTML for the Grid model.
+            </summary>
+            <param name="content">The parent content item.</param>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.TypedGridExtensionMethods.GetTypedGridHtml(Umbraco.Core.Models.IPublishedContent,System.Web.Mvc.HtmlHelper,System.String,System.String)">
+            <summary>
+            Gets the HTML for the Grid model.
+            </summary>
+            <param name="content">The parent content item.</param>
+            <param name="html">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/>.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+            <param name="framework">The framework used to render the Grid.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Extensions.ViewExtensions">
+            <summary>
+            Class holding various extension methods for handling a view.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Extensions.ViewExtensions.ViewExists(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Check if a view exists.
+            </summary>
+            <param name="helper">The instance of <see cref="T:System.Web.Mvc.HtmlHelper"/> used for checking the view.</param>
+            <param name="viewPath">The partial view to be used for the checking.</param>
+            <returns>True if view is found else false.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridDictionaryItem">
+            <summary>
+            Class representing an item of <see cref="T:Skybrud.Umbraco.GridData.GridDictionary"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDictionaryItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new item based on the specified <paramref name="key"/> and <paramref name="value"/>.
+            </summary>
+            <param name="key">The key of the item.</param>
+            <param name="value">The value of the item.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDictionaryItem.Key">
+            <summary>
+            Gets the key of the item.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDictionaryItem.Value">
+            <summary>
+            Gets the value of the item.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridElement">
+            <summary>
+            Class representing a generic element in an Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridElement.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the area.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridElement.GetSearchableText">
+            <summary>
+            Gets a textual representation of the element - eg. to be used in Examine.
+            </summary>
+            <returns>Returns an instance of <see cref="T:System.String"/> representing the value of the element.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridElement.Config">
+            <summary>
+            Gets a dictionary representing the configuration (called <strong>Settings</strong> in the backoffice) of the element.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridElement.HasConfig">
+            <summary>
+            Gets whetehr the element has one or more config values.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridElement.Styles">
+            <summary>
+            Gets a dictionary representing the styles of the element.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridElement.HasStyles">
+            <summary>
+            Gets whetehr the element has one or more style values.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridElement.IsValid">
+            <summary>
+            Gets whether at least one control within the element is valid.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridUtils">
+            <summary>
+            Various utility methods for the grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridUtils.GetVersion">
+            <summary>
+            Gets the assembly version as a string.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridUtils.GetFileVersion">
+            <summary>
+            Gets the file version as a string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridUtils.GetDaysSinceStart">
+            <summary>
+            Gets the amount of days between the date of this build and the date the project was started - that is the 30th of July, 2012.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridUtils.GetBuildDate">
+            <summary>
+            Gets the date of this build of Skybrud.Social.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridUtils.GetBuildNumber">
+            <summary>
+            Gets the build number of the day. This is mostly used for internal
+            purposes to distinguish builds with the same assembly version.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridUtils.IsValidPartialName(System.String)">
+            <summary>
+            Gets whether the specified <paramref name="name"/> is a valid partial name.
+            </summary>
+            <param name="name">The name of the partial.</param>
+            <returns><code>true</code> if <paramref name="name"/> is valid; otherwise <code>false</code>.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Howdy">
+            <summary>
+            Internal class referencing stuff from Umbraco 7.3, which isn't available in Umbraco 7.2. Since only this class
+            is referencing code in Umbraco 7.3, we can make a release that works for both Umbraco 7.2.x and 7.3.x.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Json.Converters.GridJsonConverter">
+            <summary>
+            Converter for dictionary based values in the grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.Converters.GridJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.Converters.GridJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.Converters.GridJsonConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="type">Type of the object.</param>
+            <returns><code>true</code> if this instance can convert the specified object type; otherwise <code>false</code>.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Json.Converters.GridJsonConverter.CanRead">
+            <summary>
+            Gets a value indicating whether this Newtonsoft.Json.JsonConverter can read JSON.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Json.Converters.GridControlValueStringConverter">
+            <summary>
+            Converter for text based grid control values.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.Converters.GridControlValueStringConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.Converters.GridControlValueStringConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Json.Converters.GridControlValueStringConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="type">Type of the object.</param>
+            <returns><code>true</code> if this instance can convert the specified object type; otherwise <code>false</code>.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Json.Converters.GridControlValueStringConverter.CanRead">
+            <summary>
+            Gets a value indicating whether this Newtonsoft.Json.JsonConverter can read JSON.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridArea">
+            <summary>
+            Class representing an area in an Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridArea.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the area.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridArea.GetSearchableText">
+            <summary>
+            Gets a textual representation of the area - eg. to be used in Examine.
+            </summary>
+            <returns>Returns an instance of <see cref="T:System.String"/> representing the value of the area.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridArea.Parse(Skybrud.Umbraco.GridData.GridRow,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses an area from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="row">The parent row of the area.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.Row">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridRow"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.Grid">
+            <summary>
+            Gets the column width of the area.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.AllowAll">
+            <summary>
+            Gets wether all editors are allowed for this area.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.Allowed">
+            <summary>
+            Gets an array of all editors allowed for this area. If <see cref="P:Skybrud.Umbraco.GridData.GridArea.AllowAll"/> is <code>true</code>, this
+            array may be empty.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.Controls">
+            <summary>
+            Gets an array of all controls added to this area.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.PreviousArea">
+            <summary>
+            Gets a reference to the previous area.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.NextArea">
+            <summary>
+            Gets a reference to the next area.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.HasControls">
+            <summary>
+            Gets whether the area has any controls.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.FirstControl">
+            <summary>
+            Gets the first control of the area. If the area doesn't contain
+            any controls, this property will return <code>null</code>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.LastControl">
+            <summary>
+            Gets the last control of the area. If the area doesn't contain
+            any controls, this property will return <code>null</code>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridArea.IsValid">
+            <summary>
+            Gets whether at least one control within the area is valid.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridContext">
+            <summary>
+            Singleton class used for configuring and using the grid.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.GridData.GridContext.Current">
+            <summary>
+            Gets the singleton instance of the <see cref="T:Skybrud.Umbraco.GridData.GridContext"/> class.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridContext.GetControlWrapper(Skybrud.Umbraco.GridData.GridControl)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/> based on the specified <paramref name="control"/>.
+            </summary>
+            <param name="control">The control to wrap.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/>.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridContext.Converters">
+            <summary>
+            Gets the collection of Grid converters.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridDictionary">
+            <summary>
+            Dictionary representing a configuration for an element in the Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDictionary.ContainsKey(System.String)">
+            <summary>
+            Gets whether the specified <paramref name="key"/> is contained in the dictionary.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDictionary.TryGetValue(System.String,System.String@)">
+            <summary>
+            Gets the value associated with the specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="value">When this method returns, contains the value associated with the specified key, if the
+            key is found; otherwise, the default value for the type of the value parameter. This parameter is passed
+            uninitialized.</param>
+            <returns><code>true</code> if the dictionary contains an element with the specified key; otherwise,
+            <code>false</code>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDictionary.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            </summary>
+            <returns>An enumerator that can be used to iterate through the collection.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDictionary.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.GridDictionary"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+            <returns>Returns an instance of <see cref="T:Skybrud.Umbraco.GridData.GridDictionary"/>.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDictionary.Keys">
+            <summary>
+            Gets the keys of the underlying dictionary.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDictionary.Values">
+            <summary>
+            Gets the keys of the underlying dictionary.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDictionary.Count">
+            <summary>
+            Gets the amount of items in the dictionary.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDictionary.Item(System.String)">
+            <summary>
+            Gets the value of an item with the specified <paramref name="key"/>.
+            </summary>
+            <param name="key">The key of the dictionary item.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridSection">
+            <summary>
+            Class representing a section in an Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridSection.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the section.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridSection.GetSearchableText">
+            <summary>
+            Gets a textual representation of the section - eg. to be used in Examine.
+            </summary>
+            <returns>Returns an instance of <see cref="T:System.String"/> representing the value of the section.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridSection.GetHtml(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Generates the HTML for the Grid row.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid row.</param>
+            <returns>Returns the Grid row as an instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridSection.GetHtml(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Generates the HTML for the Grid row.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid row.</param>
+            <param name="partial">The alias or virtual path to the partial view for rendering the Grid row.</param>
+            <returns>Returns the Grid row as an instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridSection.Parse(Skybrud.Umbraco.GridData.GridDataModel,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses a section from the specified <paramref name="model"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="model">The parent model of the section.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.Name">
+            <summary>
+            Gets the section name.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.Model">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridDataModel"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.Grid">
+            <summary>
+            Gets the overall column width of the section.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.Rows">
+            <summary>
+            Gets an array of all rows in the sections.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.HasRows">
+            <summary>
+            Gets whether the section has any rows.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.FirstRow">
+            <summary>
+            Gets the first row of the section. If the section doesn't contain any rows, this property will return
+            <code>null</code>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridSection.LastRow">
+            <summary>
+            Gets the last row of the section. If the section doesn't contain any rows, this property will return
+            <code>null</code>.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridControl">
+            <summary>
+            Class representing a control in an Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetValue``1">
+            <summary>
+            Gets the value of the control casted to the type of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the value to be returned.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetHtml(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Generates the HTML for the Grid control.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid control.</param>
+            <returns>Returns the Grid control as an instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetHtml(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Generates the HTML for the Grid control.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid control.</param>
+            <param name="partial">The alias or virtual path to the partial view for rendering the Grid control.</param>
+            <returns>Returns the Grid control as an instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetHtmlOrFallback(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Generates the HTML for the Grid control based on either a partial view found using conventions, or
+            <see cref="!:fallbackPartial"/> if a partial could not be found.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid control.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if a partial view could not be found.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetHtmlOrFallback(System.Web.Mvc.HtmlHelper,System.String,System.String)">
+            <summary>
+            Generates the HTML for the Grid control based on the specified <paramref name="partial"/> view, or
+            <see cref="!:fallbackPartial"/> if <paramref name="partial"/> could not be found.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid control.</param>
+            <param name="partial">The alias or virtual path to the partial view for rendering the Grid control.</param>
+            <param name="fallbackPartial">The fallback partial view to be used if <paramref name="partial"/> isn't found.</param>
+            <returns>An instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetSearchableText">
+            <summary>
+            Gets the value of the control as a searchable text - eg. to be used in Examine.
+            </summary>
+            <returns>Returns an instance of <see cref="T:System.String"/> with the value as a searchable text.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetControlWrapper``1">
+            <summary>
+            Initializes a new control wrapper around the control.
+            </summary>
+            <typeparam name="TValue">The type of the control value.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.GetControlWrapper``2">
+            <summary>
+            Initializes a new control wrapper around the control.
+            </summary>
+            <typeparam name="TValue">The type of the control value.</typeparam>
+            <typeparam name="TConfig">The type of the editor config.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridControl.Parse(Skybrud.Umbraco.GridData.GridArea,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses a control from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="area">The parent area of the control.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridControl.Area">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridArea"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridControl.Value">
+            <summary>
+            Gets the value of the control. Alternately use the <see cref="M:Skybrud.Umbraco.GridData.GridControl.GetValue``1"/> method to get the type safe value.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridControl.Editor">
+            <summary>
+            Gets a reference to the editor of the control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridControl.PreviousControl">
+            <summary>
+            Gets a reference to the previous control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridControl.NextControl">
+            <summary>
+            Gets a reference to the next control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridControl.IsValid">
+            <summary>
+            Gets whether the control and it's value is valid.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridDataModel">
+            <summary>
+            Class representing the value/model saved by an Umbraco Grid property.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetAllControls">
+            <summary>
+            Gets an array of all nested controls. 
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetAllControls(System.String)">
+            <summary>
+            Gets an array of all nested controls with the specified editor <paramref name="alias"/>. 
+            </summary>
+            <param name="alias">The editor alias of controls to be returned.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetAllControls(System.Func{Skybrud.Umbraco.GridData.GridControl,System.Boolean})">
+            <summary>
+            Gets an array of all nested controls matching the specified <paramref name="predicate"/>. 
+            </summary>
+            <param name="predicate">The predicate (callback function) used for comparison.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetHtml(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Generates the HTML for the Grid model.
+            </summary>
+            <param name="helper">The HTML helper used for rendering the Grid.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetHtml(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Generates the HTML for the Grid model.
+            </summary>
+            <param name="helper">The HTML helper used for rendering the Grid.</param>
+            <param name="framework">The framework used to render the Grid.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetSearchableText">
+            <summary>
+            Gets a textual representation of the grid model - eg. to be used in Examine.
+            </summary>
+            <returns>Returns an instance of <see cref="T:System.String"/> representing the value of the grid model.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetEmptyModel">
+            <summary>
+            Gets an empty (and invalid) model. This method can be used to get a fallback value for
+            when an actual Grid model isn't available.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.GetEmptyModel(System.String)">
+            <summary>
+            Gets an empty (and invalid) model. This method can be used to get a fallback value for
+            when an actual Grid model isn't available.
+            </summary>
+            <param name="propertyTypeAlias">The alias of the property the Grid model is representing.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.Deserialize(System.String)">
+            <summary>
+            Deserializes the specified <paramref name="json"/> string into an instance of <see cref="T:Skybrud.Umbraco.GridData.GridDataModel"/>.
+            </summary>
+            <param name="json">The JSON string to be deserialized.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.Deserialize(System.String,System.String)">
+            <summary>
+            Deserializes the specified <paramref name="json"/> string into an instance of <see cref="T:Skybrud.Umbraco.GridData.GridDataModel"/>.
+            </summary>
+            <param name="json">The JSON string to be deserialized.</param>
+            <param name="propertyTypeAlias">The alias of the property the Grid model is representing.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridDataModel.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Umbraco.GridData.GridDataModel"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.IsValid">
+            <summary>
+            Gets whether the model is valid. The model is considered valid if it has been parsed from a JSON value and
+            has at least one valid control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.Raw">
+            <summary>
+            Gets the raw JSON value this model was parsed from.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.Name">
+            <summary>
+            Gets the name of the selected layout.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.Sections">
+            <summary>
+            Gets an array of the columns in the grid.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.PropertyAlias">
+            <summary>
+            Gets the alias of the document type property used for the grid.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.HasPropertyAlias">
+            <summary>
+            Gets whether a property alias has been specified for the model.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.name">
+            <summary>
+            Same as <see cref="P:Skybrud.Umbraco.GridData.GridDataModel.Name"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridDataModel.sections">
+            <summary>
+            Gets the underlying JSON array for the <code>sections</code> property. 
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridEditor">
+            <summary>
+            Class representing an editor of a control in an Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridEditor.GetConfig``1">
+            <summary>
+            Gets the config of the editor casted to the type of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the config to be returned.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridEditor.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses an editor from the specified <paramref name="control"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="control">The parent control of the editor.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.Control">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.Name">
+            <summary>
+            Gets the name of the editor.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.Alias">
+            <summary>
+            Gets the alias of the editor.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.View">
+            <summary>
+            Gets the view of the editor.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.Render">
+            <summary>
+            Gets renderer for the control/editor. If specified, the renderer refers to a partial
+            view that should be used for rendering the control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.Icon">
+            <summary>
+            Gets the icon of the editor.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridEditor.Config">
+            <summary>
+            Gets the configuration object for the editor. This property will return <code>null</code> if the
+            corresponding property in the underlying JSON is also <code>null</code>.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridPropertyValueConverter">
+            <summary>
+            Property value converter for the Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridPropertyValueConverter.IsConverter(Umbraco.Core.Models.PublishedContent.PublishedPropertyType)">
+            <summary>
+            Gets a value indicating whether the converter supports a property type.
+            </summary>
+            <param name="propertyType">The property type.</param>
+            <returns>A value indicating whether the converter supports a property type.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridPropertyValueConverter.ConvertDataToSource(Umbraco.Core.Models.PublishedContent.PublishedPropertyType,System.Object,System.Boolean)">
+            <summary>
+            Converts a property Data value to a Source value.
+            </summary>
+            <param name="propertyType">The property type.</param>
+            <param name="source">The data value.</param>
+            <param name="preview">A value indicating whether conversion should take place in preview mode.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridPropertyValueConverter.ConvertSourceToObject(Umbraco.Core.Models.PublishedContent.PublishedPropertyType,System.Object,System.Boolean)">
+            <summary>
+            Converts a property Source value to an Object value.
+            </summary>
+            <param name="propertyType">The property type.</param>
+            <param name="source">The source value.</param>
+            <param name="preview">A value indicating whether conversion should take place in preview mode.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridPropertyValueConverter.ConvertSourceToXPath(Umbraco.Core.Models.PublishedContent.PublishedPropertyType,System.Object,System.Boolean)">
+            <summary>
+            Converts a property Source value to an XPath value.
+            </summary>
+            <param name="propertyType">The property type.</param>
+            <param name="source">The source value.</param>
+            <param name="preview">A value indicating whether conversion should take place in preview mode.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridPropertyValueConverter.GetPropertyCacheLevel(Umbraco.Core.Models.PublishedContent.PublishedPropertyType,Umbraco.Core.PropertyEditors.PropertyCacheValue)">
+            <summary>
+            Gets the property cache level of a specified value.
+            </summary>
+            <param name="propertyType">The property type.</param>
+            <param name="cacheValue">The property value.</param>
+            <returns>The property cache level of the specified value.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridPropertyValueConverter.GetPropertyValueType(Umbraco.Core.Models.PublishedContent.PublishedPropertyType)">
+            <summary>
+            Gets the type of values returned by the converter.
+            </summary>
+            <param name="propertyType">The property type.</param>
+            <returns>The CLR type of values returned by the converter.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.GridRow">
+            <summary>
+            Class representing a row in an Umbraco Grid.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the row.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.GetAllControls">
+            <summary>
+            Gets an array of all nested controls. 
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.GetAllControls(System.String)">
+            <summary>
+            Gets an array of all nested controls with the specified editor <paramref name="alias"/>. 
+            </summary>
+            <param name="alias">The editor alias of controls to be returned.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.GetAllControls(System.Func{Skybrud.Umbraco.GridData.GridControl,System.Boolean})">
+            <summary>
+            Gets an array of all nested controls matching the specified <paramref name="predicate"/>. 
+            </summary>
+            <param name="predicate">The predicate (callback function) used for comparison.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.GetHtml(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Generates the HTML for the Grid row.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid row.</param>
+            <returns>Returns the Grid row as an instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.GetHtml(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Generates the HTML for the Grid row.
+            </summary>
+            <param name="helper">The <see cref="T:System.Web.Mvc.HtmlHelper"/> used for rendering the Grid row.</param>
+            <param name="partial">The alias or virtual path to the partial view for rendering the Grid row.</param>
+            <returns>Returns the Grid row as an instance of <see cref="T:System.Web.HtmlString"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.GetSearchableText">
+            <summary>
+            Gets a textual representation of the row - eg. to be used in Examine.
+            </summary>
+            <returns>Returns an instance of <see cref="T:System.String"/> representing the value of the row.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.GridRow.Parse(Skybrud.Umbraco.GridData.GridSection,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses a row from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="section">The parent section of the row.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.Section">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridSection"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.Id">
+            <summary>
+            Gets the unique ID of the row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.Alias">
+            <summary>
+            Gets the alias of the row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.Label">
+            <summary>
+            Gets the label of the row. Use <see cref="P:Skybrud.Umbraco.GridData.GridRow.HasLabel"/> to check whether a label has been specified.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.HasLabel">
+            <summary>
+            Gets whether a label has been specified for the definition of this row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.Name">
+            <summary>
+            Gets the name of the row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.Areas">
+            <summary>
+            Gets an array of all areas in the row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.PreviousRow">
+            <summary>
+            Gets a reference to the previous row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.NextRow">
+            <summary>
+            Gets a reference to the next row.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.HasAreas">
+            <summary>
+            Gets whether the row has any areas.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.FirstRow">
+            <summary>
+            Gets the first area of the row. If the row doesn't contain any areas, this property will return
+            <code>null</code>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.LastRow">
+            <summary>
+            Gets the last area of the row. If the row doesn't contain any areas, this property will return
+            <code>null</code>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.GridRow.IsValid">
+            <summary>
+            Gets whether at least one area or control within the row is valid.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue">
+            <summary>
+            Interface describing a grid control value.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue.GetSearchableText">
+            <summary>
+            Gets the value of the control as a searchable text - eg. to be used in Examine.
+            </summary>
+            <returns>An instance of <see cref="T:System.String"/> with the value as a searchable text.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue.Control">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue.IsValid">
+            <summary>
+            Gets whether the value of the control is valid.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.PiggyBank">
+            <summary>
+            This project started out as a proof of concept for and with my colleague René Pjengaard. While I couldn't think
+            of a proper name at the time, the name of this class was mostly to annoy René.
+            
+            The class has now been replaced by the <see cref="T:Skybrud.Umbraco.GridData.GridContext"/> class, but this class is left behind for good
+            memories. It is however not recommended to use this class.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.PiggyBank.GetControlWrapper(Skybrud.Umbraco.GridData.GridControl)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper"/> based on the specified <paramref name="control"/>.
+            </summary>
+            <param name="control">The control to wrap.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.PiggyBank.OneLittlePiggy">
+            <summary>
+            Gets one little piggy.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper">
+            <summary>
+            Helper class for wrapping a grid control.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper.#ctor(Skybrud.Umbraco.GridData.GridControl)">
+            <summary>
+            Wraps an instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.
+            </summary>
+            <param name="control">The control to be wrap.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper.Control">
+            <summary>
+            Gets a reference to the wrapped control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper.Editor">
+            <summary>
+            Gets a reference to the control editor.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper.IsValid">
+            <summary>
+            Gets whether the value of the grid control is valid.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper.HasConfig">
+            <summary>
+            Gets whether the editor has a configuration (meaning that <see cref="P:Skybrud.Umbraco.GridData.GridEditor.Config"/> isn't <code>null</code>).
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper`1">
+            <summary>
+            Helper class for wrapping a grid control and its strongly typed value. The wrapper class
+            can be used as the model for a partial view.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper`1.#ctor(Skybrud.Umbraco.GridData.GridControl,`0)">
+            <summary>
+            Wraps an instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.
+            </summary>
+            <param name="control">The control to be wrap.</param>
+            <param name="value">The type of the value.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper`1.Value">
+            <summary>
+            Gets a referece to the control value.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper`2">
+            <summary>
+            Helper class for wrapping a grid control, its strongly typed value and the config of the
+            editor. The wrapper class can be used as the model for a partial view.
+            </summary>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <typeparam name="TConfig">The type of the config.</typeparam>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper`2.#ctor(Skybrud.Umbraco.GridData.GridControl,`0,`1)">
+            <summary>
+            Wraps an instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.
+            </summary>
+            <param name="control">The control to be wrap.</param>
+            <param name="value">The type of the value.</param>
+            <param name="config">The type of the editor config.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Rendering.GridControlWrapper`2.Config">
+            <summary>
+            Gets a referece to the editor config.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue">
+            <summary>
+            Class representing the HTML value of a control.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlTextValue">
+            <summary>
+            Class representing the text value of a control.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlTextValue.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="token">An instance of <see cref="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.JToken"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlTextValue.GetSearchableText">
+            <summary>
+            Gets the value of the control as a searchable text - eg. to be used in Examine.
+            </summary>
+            <returns>An instance of <see cref="T:System.String"/> with the value as a searchable text.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlTextValue.ToString">
+            <summary>
+            Gets a string representing the raw value of the control.
+            </summary>
+            <returns>An instance of <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlTextValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Gets a text value from the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <see cref="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.JToken"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.Control">
+            <summary>
+            Gets a reference to the parent control.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.JToken">
+            <summary>
+            Gets a reference to the underlying instance of <see cref="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.JToken"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.Value">
+            <summary>
+            Gets a string representing the value.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlTextValue.IsValid">
+            <summary>
+            Gets whether the value is valid. For an instance of <see cref="T:Skybrud.Umbraco.GridData.Values.GridControlTextValue"/>, this means
+            checking whether the specified text is not an empty string (using <see cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>).
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="token">An instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.GetSearchableText">
+            <summary>
+            Gets the value of the control as a searchable text - eg. to be used in Examine.
+            </summary>
+            <returns>An instance of <see cref="T:System.String"/> with the value as a searchable text.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.ToHtmlString">
+            <summary>
+            Gets a string representing the raw value of the control.
+            </summary>
+            <returns>An instance of <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Gets a text value from the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.HtmlValue">
+            <summary>
+            Gets an instance of <see cref="T:System.Web.HtmlString"/> representing the text value.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.IsValid">
+            <summary>
+            Gets whether the value is valid. For an instance of <see cref="T:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue"/>, this means
+            checking whether the specified text is not an empty string (using <see cref="M:System.String.IsNullOrWhiteSpace(System.String)"/>
+            against the value returned by the <see cref="M:Skybrud.Umbraco.GridData.Values.GridControlHtmlValue.GetSearchableText"/> method).
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlMediaFocalPoint">
+            <summary>
+            Class representing the focal point of a media.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlMediaFocalPoint.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the the focal point.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlMediaFocalPoint.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets a focal point from the specified <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaFocalPoint.Left">
+            <summary>
+            The horizontal (X-axis) coordinate of the focal point.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaFocalPoint.Top">
+            <summary>
+            The vertical (Y-axis) coordinate of the focal point.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlRichTextValue">
+            <summary>
+            Class representing the rich text value of a control.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlRichTextValue.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="token">An instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlRichTextValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Gets a rich text value from the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlEmbedValue">
+            <summary>
+            Class representing the embed value of a control.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlEmbedValue.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="token">An instance of <see cref="T:Newtonsoft.Json.Linq.JToken"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlEmbedValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Gets an embed value from the specified <paramref name="control"/> and <paramref name="token"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="token">The instance of <code>JToken</code> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlEmbedValue.IsValid">
+            <summary>
+            Gets whether the value of the control is valid.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlMacroValue">
+            <summary>
+            Class representing the macro value of a control.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlValueBase">
+            <summary>
+            Abstract class with a basic implementation of the <see cref="T:Skybrud.Umbraco.GridData.Interfaces.IGridControlValue"/> interface.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlValueBase.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlValueBase.GetSearchableText">
+            <summary>
+            Gets the value of the control as a searchable text - eg. to be used in Examine.
+            </summary>
+            <returns>An instance of <see cref="T:System.String"/> with the value as a searchable text.</returns>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlValueBase.Control">
+            <summary>
+            Gets a reference to the parent <see cref="T:Skybrud.Umbraco.GridData.GridControl"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlValueBase.IsValid">
+            <summary>
+            Gets whether the control is valid (eg. whether it has a value).
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlMacroValue.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlMacroValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets a macro value from the specified <paramref name="control"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMacroValue.Syntax">
+            <summary>
+            Gets the syntax of the macro.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMacroValue.MacroAlias">
+            <summary>
+            Gets the alias of the macro.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMacroValue.Parameters">
+            <summary>
+            Gets a dictionary containing the macro parameters.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMacroValue.IsValid">
+            <summary>
+            Gets whether the value is valid. For an instance of <see cref="T:Skybrud.Umbraco.GridData.Values.GridControlMacroValue"/>, this means
+            checking whether a macro alias has been specified.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.GridData.Values.GridControlMediaValue">
+            <summary>
+            Class representing the media value of a control.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.#ctor(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <paramref name="control"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="control">An instance of <see cref="T:Skybrud.Umbraco.GridData.GridControl"/> representing the control.</param>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the value of the control.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.Parse(Skybrud.Umbraco.GridData.GridControl,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Gets a media value from the specified <paramref name="control"/> and <paramref name="obj"/>.
+            </summary>
+            <param name="control">The parent control.</param>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.FocalPoint">
+            <summary>
+            Gets the focal point with information on how the iamge should be cropped.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.Id">
+            <summary>
+            Gets the ID of the image.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.Image">
+            <summary>
+            Gets the URL of the media.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.Caption">
+            <summary>
+            Gets the caption of the media.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.HasCaption">
+            <summary>
+            Gets whether the <see cref="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.Caption"/> property has a value.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.GridData.Values.GridControlMediaValue.IsValid">
+            <summary>
+            Gets whether the value is valid. For an instance of <see cref="T:Skybrud.Umbraco.GridData.Values.GridControlMediaValue"/>, this means
+            checking whether an image has been selected. The property will however not validate the image against the
+            media cache.
+            </summary>
+        </member>
+    </members>
+</doc>

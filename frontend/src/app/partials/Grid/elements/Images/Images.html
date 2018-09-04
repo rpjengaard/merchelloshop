@@ -1,0 +1,79 @@
+<div class="grid-images">
+	<span
+		class="grid-images-heading"
+		v-if="$_get(content, 'value.title')"
+		v-text="$_get(content, 'value.title')"
+	/>
+
+	<figure
+		v-if="isSingle"
+		:key="images[0].imageId"
+	>
+		<SkyCrop
+			:src="images[0].imageUrl"
+			:alt="$_get(images[0], 'title', '')"
+		/>
+		<figcaption
+			v-if="$_get(images[0], 'description')"
+			v-text="$_get(images[0], 'description')"
+		/>
+	</figure>
+
+	<SkySwiper
+		v-if="isSwiper"
+		:items="images"
+		:controls="{
+			next: true,
+			previous: true,
+			cursor: false,
+		}"
+		:navigation="{
+			indicator: 'bullets',
+		}"
+	>
+		<SpaLink
+			slot="content"
+			slot-scope="{ item }"
+			:href="$_get(item, 'link.url')"
+			:target="$_get(item, 'link.target')"
+		>
+			<SkyCrop
+				:src="item.image.cropUrl"
+				mode="cover"
+				:alt="$_get(item, 'title', '')"
+			/>
+		</SpaLink>
+
+		<div
+			slot="caption"
+			slot-scope="{ item }"
+		>
+			<p
+				v-if="$_get(item, 'description')"
+				v-text="$_get(item, 'description')"
+			/>
+		</div>
+
+		<!-- <SvgWedge
+			slot="controls-next"
+			preserveAspectRatio="xMidYMid meet"
+		/> -->
+
+		<!-- <SvgWedge
+			slot="controls-previous"
+			preserveAspectRatio="xMidYMid meet"
+		/> -->
+
+		<!-- <SvgArrow
+			slot="cursor"
+			preserveAspectRatio="xMidYMid meet"
+		/> -->
+
+	</SkySwiper>
+
+	<SkyGallery
+		v-if="isGallery"
+		:lightbox="true"
+		:items="images"
+	/>
+</div>

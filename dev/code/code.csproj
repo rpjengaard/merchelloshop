@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15CFFDB6-2E56-4271-A7C3-5BAC7393ACB6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>code</RootNamespace>
+    <AssemblyName>code</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="businesslogic, Version=1.0.6684.15729, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\businesslogic.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core, Version=1.9.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.9.6\lib\net45\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="cms, Version=1.0.6684.15730, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\cms.dll</HintPath>
+    </Reference>
+    <Reference Include="controls, Version=1.0.6684.15731, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\controls.dll</HintPath>
+    </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="Examine, Version=0.1.89.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.0.1.89\lib\net45\Examine.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.6.0\lib\net452\ImageProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor.Plugins.WebP, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Plugins.WebP.1.1.0\lib\net452\ImageProcessor.Plugins.WebP.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor.Web, Version=4.8.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.8.7\lib\net45\ImageProcessor.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="interfaces, Version=1.0.6684.15718, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Lecoati.LeBlender.Extension, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lecoati.LeBlender.1.0.9.2\lib\Lecoati.LeBlender.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Log4Net.Async, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Log4Net.Async.2.0.4\lib\net40\Log4Net.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp, Version=1.14.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdown.1.14.7\lib\net45\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.1.0.0\lib\net45\Microsoft.CodeAnalysis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.1.0.0\lib\net45\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.2\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.2.1.0\lib\net40\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\semver.1.1.2\lib\net45\Semver.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Essentials, Version=1.0.11.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Essentials.1.0.11\lib\net45\Skybrud.Essentials.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.ImagePicker, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.ImagePicker.1.1.3\lib\net45\Skybrud.ImagePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.LinkPicker, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.LinkPicker.1.1.2\lib\net45\Skybrud.LinkPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Social, Version=0.9.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Social.0.9.6.0\lib\net40\Skybrud.Social.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Umbraco.GridData, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Umbraco.GridData.2.0.3\lib\net45\Skybrud.Umbraco.GridData.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Umbraco.GridData.LeBlender, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Umbraco.GridData.LeBlender.1.0.0-beta001\lib\net45\Skybrud.Umbraco.GridData.LeBlender.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Umbraco.GridElements.Core, Version=0.9.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Umbraco.GridElements.Core.0.9.10\lib\net45\Skybrud.Umbraco.GridElements.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Umbraco.Module, Version=1.0.44.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Umbraco.Module.1.0.44\lib\net45\Skybrud.Umbraco.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Umbraco.Redirects, Version=0.2.5.8, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Umbraco.Redirects.0.2.8\lib\net45\Skybrud.Umbraco.Redirects.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.Umbraco.Search, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.Umbraco.Search.1.0.7\lib\net45\Skybrud.Umbraco.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.UmbracoEssentials, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.UmbracoEssentials.1.0.2\lib\net45\Skybrud.UmbracoEssentials.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.VideoPicker, Version=0.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.VideoPicker.0.0.3\lib\net45\Skybrud.VideoPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Skybrud.WebApi.Json, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skybrud.WebApi.Json.1.0.4\lib\net45\Skybrud.WebApi.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLCE4Umbraco, Version=1.0.6684.15730, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\SQLCE4Umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.1.36.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.1.36\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\System.Data.SqlServerCe.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Reflection.Metadata, Version=1.0.21.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.0.21\lib\portable-net45+win8\System.Reflection.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.6.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.4.7.0\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\TidyNet.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco, Version=1.0.6684.15731, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\umbraco.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Core, Version=1.0.6684.15725, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\Umbraco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.DataLayer, Version=1.0.6684.15729, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\umbraco.DataLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.editorControls, Version=1.0.6684.15735, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\umbraco.editorControls.dll</HintPath>
+    </Reference>
+    <Reference Include="umbraco.MacroEngines, Version=1.0.6684.15735, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\umbraco.MacroEngines.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.ModelsBuilder, Version=3.0.7.99, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Umbraco.ModelsBuilder.3.0.7\lib\Umbraco.ModelsBuilder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="umbraco.providers, Version=1.0.6684.15731, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\umbraco.providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Web.UI, Version=1.0.6684.15736, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\Umbraco.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UmbracoExamine, Version=0.7.0.15730, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.10.4\lib\net45\UmbracoExamine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\SkyConstants.Properties.cs" />
+    <Compile Include="Constants\SkyConstants.DocumentTypes.cs" />
+    <Compile Include="Constants\SkyConstants.Pages.cs" />
+    <Compile Include="Constants\SkyConstants.Prefix.cs" />
+    <Compile Include="Controllers\Api\Search\NewsController.cs" />
+    <Compile Include="Controllers\Api\Search\SiteController.cs" />
+    <Compile Include="Controllers\Api\Spa\LoggingController.cs" />
+    <Compile Include="Controllers\Api\Spa\SpaController.cs" />
+    <Compile Include="Controllers\Backoffice\CacheController.cs" />
+    <Compile Include="Controllers\Mvc\SkyController.cs" />
+    <Compile Include="EventHandlers\AssetsWatcher.cs" />
+    <Compile Include="EventHandlers\ContentDefaultValues.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Extensions\SpaExtensions.cs" />
+    <Compile Include="Grid\GridConverter.cs" />
+    <Compile Include="Grid\Models\GridControlCtaValue.cs" />
+    <Compile Include="Grid\Models\SkyGridControlValueBase.cs" />
+    <Compile Include="Grid\Spa\SpaGridJsonConverter.cs" />
+    <Compile Include="Helpers\SpaHelpers.cs" />
+    <Compile Include="Indexers\ExamineHelper.cs" />
+    <Compile Include="Indexers\ExamineIndexer.cs" />
+    <Compile Include="Json\Helpers\SkybrudNestedContentHelper.cs" />
+    <Compile Include="Json\Models\SkybrudDetachedPublishedProperty.cs" />
+    <Compile Include="Json\Resolvers\PublishedContentContractResolver.cs" />
+    <Compile Include="Json\ValueConverters\CmLabelValueConverter.cs" />
+    <Compile Include="Json\ValueConverters\MediaToSkyImageConverter.cs" />
+    <Compile Include="Json\ValueConverters\NestedContentConverter.cs" />
+    <Compile Include="Json\ValueConverters\RteValueConverter.cs" />
+    <Compile Include="Models\Common\SkySite.cs" />
+    <Compile Include="Models\Skybrud\Base\BaseUmbracoItem.cs" />
+    <Compile Include="Models\Skybrud\Base\BaseItem.cs" />
+    <Compile Include="Models\Spa\Content\SpaContentModel.cs" />
+    <Compile Include="Models\Spa\Navigation\SpaNavigationModel.cs" />
+    <Compile Include="Models\Spa\Site\SpaSiteFooter.cs" />
+    <Compile Include="Models\Spa\SpaPartDataModel.cs" />
+    <Compile Include="Models\Spa\SpaRequestOptions.cs" />
+    <Compile Include="Models\Spa\Site\SpaSiteModel.cs" />
+    <Compile Include="Models\Website\Common\Footer.cs" />
+    <Compile Include="Models\Website\Common\SpaIntro.cs" />
+    <Compile Include="Models\Website\Common\Metadata.cs" />
+    <Compile Include="Models\Website\Common\SpaImage.cs" />
+    <Compile Include="Models\Website\Common\SpaMetaData.cs" />
+    <Compile Include="Models\Website\Common\SpaOpenGraphImage.cs" />
+    <Compile Include="Models\Website\Master.cs" />
+    <Compile Include="Models\Website\Pages\FrontPageModel.cs" />
+    <Compile Include="Models\Website\Pages\SubPageModel.cs" />
+    <Compile Include="Models\Website\Search\NewsSearchResult.cs" />
+    <Compile Include="Models\Website\Search\SiteSearchResult.cs" />
+    <Compile Include="Models\Spa\Navigation\NavItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories.cs" />
+    <Compile Include="Constants\SkyConstants.cs" />
+    <Compile Include="Routing\RewriteRule.cs" />
+    <Compile Include="SkybrudSpaPackage\Api\SpaApiControllerBase.cs" />
+    <Compile Include="SkybrudSpaPackage\Models\SpaApiPart.cs" />
+    <Compile Include="SkybrudSpaPackage\Models\SpaApiRequest.cs" />
+    <Compile Include="SkyContext.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Base\" />
+    <Folder Include="DataTypes\" />
+    <Folder Include="Models\Website\Items\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="App_Plugins\LeBlender\editors\leblendereditor\views\Base.cshtml" />
+    <None Include="App_Plugins\LeBlender\editors\leblendereditor\views\LeBlender.cshtml" />
+    <None Include="App_Plugins\LeBlender\package.manifest" />
+    <None Include="App_Plugins\LeBlender\views_samples\Carousel.cshtml" />
+    <None Include="App_Plugins\LeBlender\views_samples\Highlight.cshtml" />
+    <None Include="App_Plugins\LeBlender\views_samples\Tabs.cshtml" />
+    <None Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <None Include="App_Plugins\Skybrud.ImagePicker\package.manifest" />
+    <None Include="App_Plugins\Skybrud.LinkPicker\package.manifest" />
+    <None Include="App_Plugins\Skybrud.LinkPicker\Styles\LinkPicker.less" />
+    <None Include="App_Plugins\Skybrud.LinkPicker\Styles\_preview.less" />
+    <None Include="App_Plugins\Skybrud.LinkPicker\Styles\_table.less" />
+    <None Include="App_Plugins\Skybrud.Umbraco.Redirects\package.manifest" />
+    <None Include="App_Plugins\Skybrud.Umbraco.Redirects\Styles\Styles.less" />
+    <None Include="App_Plugins\Skybrud.Umbraco.Redirects\Styles\_dialogs.less" />
+    <None Include="App_Plugins\Skybrud.Umbraco.Redirects\Styles\_pagination.less" />
+    <None Include="App_Plugins\Skybrud.Umbraco.Redirects\Styles\_table.less" />
+    <None Include="App_Plugins\Skybrud.VideoPicker\package.manifest" />
+    <None Include="packages.config" />
+    <None Include="SkybrudModuleDocs\Skybrud.Umbraco.Search\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\delete.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\delete.js" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\edit.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\edit.js" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\sort.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\sort.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\blendereditorwrapper.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\layersresizabledraggable.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\propertygrideditorwrapper.js" />
+    <Content Include="App_Plugins\LeBlender\common\filter\orderobjectby.filter.js" />
+    <Content Include="App_Plugins\LeBlender\common\services\requesthelper.service.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\assets\parameterconfig.css" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.prevalues.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.prevalues.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblendereditor.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblendereditor.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblenderproperties.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblenderproperties.html" />
+    <Content Include="App_Plugins\LeBlender\editors\textstring\textstringconfig.html" />
+    <Content Include="App_Plugins\LeBlender\views_samples\sample_styles.css" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Controllers\ImagePicker.js" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Controllers\ImagePickerGridEditor.js" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Controllers\ImagePickerPreValues.js" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Directives\ImagePicker.js" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Lang\da-DK.xml" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Lang\en-GB.xml" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Lang\en-US.xml" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Services\ImagePickerService.js" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Styles\ImagePicker.css" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Styles\ImagePicker.min.css" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\ImagePicker.html" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\ImagePickerDirective.html" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\ImagePickerGridEditor.html" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\ImagePickerPreValues.html" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\Partials\ImagePickerDebugger.html" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\Partials\ImagePickerList.html" />
+    <Content Include="App_Plugins\Skybrud.ImagePicker\Views\Partials\ImagePickerTiles.html" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Controllers\LinkPickerGridEditor.js" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Controllers\LinkPickerPreValues.js" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Directives\LinkPicker.js" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Lang\da-DK.xml" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Lang\en-GB.xml" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Lang\en-US.xml" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Services\LinkPickerService.js" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Styles\LinkPicker.css" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Styles\LinkPicker.min.css" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Styles\_table.css" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Styles\_table.min.css" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Views\LinkPicker.html" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Views\LinkPickerDirective.html" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Views\LinkPickerGridEditor.html" />
+    <Content Include="App_Plugins\Skybrud.LinkPicker\Views\LinkPickerPreValues.html" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Lang\da-DK.xml" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Lang\en-GB.xml" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Lang\en-US.xml" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Scripts\Controllers\AddRedirectDialog.js" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Scripts\Controllers\Dashboard.js" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Scripts\Controllers\EditRedirectDialog.js" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Scripts\Controllers\PropertyEditor.js" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Scripts\Services\RedirectsService.js" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Styles\Styles.css" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Styles\Styles.min.css" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Views\Dashboard.html" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Views\Dialogs\Add.html" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Views\Dialogs\Edit.html" />
+    <Content Include="App_Plugins\Skybrud.Umbraco.Redirects\Views\PropertyEditor.html" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Scripts\Controllers\VideosEditor.js" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Scripts\Controllers\VideosGridEditor.js" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Scripts\Directives\Videos.js" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Styles\Styles.css" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Styles\Styles.min.css" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Views\VideosDirective.html" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Views\VideosEditor.html" />
+    <Content Include="App_Plugins\Skybrud.VideoPicker\Views\VideosGridEditor.html" />
+    <Content Include="SkybrudModuleDocs\Skybrud.Umbraco.Search\readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

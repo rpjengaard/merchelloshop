@@ -1,0 +1,38 @@
+<nav :class="['navigation', `navigation-${type}`]">
+	<ul class="navigation-list">
+		<li
+			v-for="item in items"
+			v-if="item && item.isVisible"
+			:class="{
+				active: contentPath.indexOf(item.id) > -1,
+				current: currentPage.id === item.id,
+				toggled: isOpen(item.id),
+			}"
+		>
+			<div class="nav-link">
+				<SpaLink
+					@focus.native="toggleFocus(item.id)"
+					:href="item.url"
+					v-text="item.title"
+				/>
+
+				<button
+					v-if="item.hasChildren && levels >= 1 && (type === 'foldable') && !$isServer"
+					@click="toggleOpen(item.id)"
+					:class="['nav-toggle', {toggled: isOpen(item.id)}]"
+				>
+					+
+				</button>
+			</div>
+
+			<Navigation
+				v-if="showNextLevel(item) && levels >= 1"
+				:entry="item.id"
+				:levels="levels-1"
+				:type="item.hasChildren ? type : 'flat'"
+				:class="{'fold-out': isOpen(item.id)}"
+			/>
+		</li>
+		<li v-if="loading">...</li>
+	</ul>
+</nav>

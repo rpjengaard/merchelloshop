@@ -1,0 +1,17 @@
+<div class="pre-transition">
+	<transition
+		name="pre-anim"
+		@after-enter="afterEnter"
+	>
+		<div
+			v-if="active"
+			class="transition-overlay"
+		/>
+	</transition>
+	<transition name="pre-spinner-anim">
+		<div
+			v-if="active"
+			class="transition-spinner"
+		/>
+	</transition>
+</div>

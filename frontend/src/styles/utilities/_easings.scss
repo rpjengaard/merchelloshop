@@ -1,0 +1,73 @@
+/**
+ * CSS easings below
+ * 
+ * See listed eases and make your own here:
+ * http://matthewlein.com/ceaser/
+ */
+
+/* Cubic */
+$CubicIn    : cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$CubicOut   : cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$CubicInOut : cubic-bezier(0.645, 0.045, 0.355, 1.000);
+
+/* Circ */
+$CircIn     : cubic-bezier(0.600, 0.040, 0.980, 0.335);
+$CircOut    : cubic-bezier(0.075, 0.820, 0.165, 1.000);
+$CircInOut  : cubic-bezier(0.785, 0.135, 0.150, 0.860);
+
+/* Expo */
+$ExpoIn     : cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$ExpoOut    : cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$ExpoInOut  : cubic-bezier(1.000, 0.000, 0.000, 1.000);
+
+/* Quad */
+$QuadIn     : cubic-bezier(0.550, 0.085, 0.680, 0.530);
+$QuadOut    : cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$QuadInOut  : cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
+/* Quart */
+$QuartIn    : cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$QuartOut   : cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$QuartInOut : cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+/* Quint */
+$QuintIn    : cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$QuintOut   : cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$QuintInOut : cubic-bezier(0.860, 0.000, 0.070, 1.000);
+
+/* Sine */
+$SineIn     : cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$SineOut    : cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$SineInOut  : cubic-bezier(0.445, 0.050, 0.550, 0.950);
+
+/* Back */
+$BackIn     : cubic-bezier(0.600, -0.280, 0.735, 0.045);
+$BackOut    : cubic-bezier(0.175,  0.885, 0.320, 1.275);
+$BackInOut  : cubic-bezier(0.680, -0.550, 0.265, 1.550);
+
+/* Custom */
+$SmoothOut	: cubic-bezier(0.500, 0.035, 0.190, 1.000);
+// $SmoothOut: If in doubt - use this. Good for most stuff.
+// Smooth ending, a little smooth start (a mix between
+// $CubicOut and $CubicInOut)
+
+$SmoothIn	: cubic-bezier(0.810, 0.000, 0.500, 0.965);
+// $SmoothIn: The sister to $SmoothOut
+// A (sort of) reversal of $SmoothOut, with very smooth start,
+// and a litte smooth end
+
+$ButterOut	: cubic-bezier(0.350, 0.000, 0.000, 1.000);
+// $ButterOut: Even smoother than $SmoothOut!
+
+$WipeOut	: cubic-bezier(0.335, 0.000, 0.225, 1.000);
+// $WipeOut: Useful for wipe transitions - especially where an
+// element moves a long distance
+
+$SilkOut	: cubic-bezier(0.645, 0.045, 0.100, 1.000);
+// $SilkOut: Similar to $QuartInOut, but weighted a bit more
+// towards a smoother ending.
+
+$SmoothLine	: cubic-bezier(0.200, 0.005, 0.800, 1.000);
+// $SmoothLine: linear (no ease) mixed with a little bit easing
+// (like $SineInOut, but much less)
+// Useful for long animation durations and/or very large distances

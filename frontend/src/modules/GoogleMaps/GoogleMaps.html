@@ -1,0 +1,51 @@
+<div class="google-maps">
+	<gmap-map
+		:center="center"
+		:zoom="zoom"
+		:options="options"
+		@click="closeInfoWindow()"
+	>
+		<gmap-info-window
+			:options="infoOptions"
+			:position="infoWindowPos"
+			:opened="infoWinOpen"
+			@closeclick="infoWinOpen=false"
+		>
+			<div
+				v-if="currentMarker"
+				class="google-maps-info"
+			>
+				<h5
+					v-if="currentMarker.location"
+					v-text="currentMarker.location"
+				/>
+				<address v-if="currentMarker.address">
+					<div v-text="currentMarker.address"></div>
+					<div v-if="currentMarker.city">{{currentMarker.zipcode}} {{currentMarker.city}}</div>
+					<div v-if="currentMarker.phone">
+						<a
+							:href="`mailto:${currentMarker.phone}`"
+							v-text="currentMarker.phone"
+						/>
+					</div>
+				</address>
+				<SpaLink
+					v-if="$_get(currentMarker, 'link.url')"
+					:href="$_get(currentMarker, 'link.url')"
+					:target="$_get(currentMarker, 'link.target')"
+					v-text="$_get(currentMarker, 'link.name')"
+					class="google-maps-info-link"
+				/>
+			</div>
+		</gmap-info-window>
+
+		<gmap-marker
+			:key="index"
+			v-for="(marker, index) in locations"
+			:position="getPosition(marker)"
+			:title="marker.location"
+			:clickable="true"
+			@click="toggleInfoWindow(marker, index)"
+		/>
+	</gmap-map>
+</div>

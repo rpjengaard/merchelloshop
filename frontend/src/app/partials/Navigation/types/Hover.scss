@@ -1,0 +1,40 @@
+@import '~styles/variables';
+
+.navigation.navigation-hover {
+	li {
+		position: relative;
+		margin: 0;
+	}
+}
+
+.navigation-hover-submenu {
+	position: absolute;
+	bottom: 1px;
+	left: 0;
+	transform: translateY(100%);
+	z-index: 1;
+	height: auto;
+	min-width: 100%;
+	margin-left: 0;
+	padding-top: 1px; // Same size as required distance between hovermenu and link
+
+	ul {
+		display: block;
+		margin-left: 0;
+		background-color: #fff;
+		box-shadow: 0px 10px 50px 5px rgba(0,0,0,0.08);
+	}
+
+	li {
+		margin-right: 0;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	a {
+		white-space: nowrap;
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+}

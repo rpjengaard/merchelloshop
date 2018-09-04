@@ -1,0 +1,9 @@
+<div class="spa-view">
+	<component
+		v-if="content"
+		:key="$route.path"
+		:is="componentName"
+		:content="content"
+		:class="componentName"
+	/>
+</div>

@@ -1,0 +1,32 @@
+﻿{
+    "propertyEditors": [
+		{
+			"alias": "Skybrud.Umbraco.Redirects",
+			"name": "Skybrud Redirects",
+			"editor": {
+				"view": "~/App_Plugins/Skybrud.Umbraco.Redirects/Views/PropertyEditor.html?v=0.2.4",
+                "hideLabel": true
+			},
+			"prevalues": {
+				"fields": [
+					{
+						"label": "Hide site option",
+						"description": "Specify the option to select a site should be hidden when creating or editing a redirect from the property editor.",
+						"key": "hideRootNodeOption",
+						"view": "boolean"
+					}
+				]
+			}
+		}
+	],
+    "javascript": [
+        "/App_Plugins/Skybrud.Umbraco.Redirects/Scripts/Services/RedirectsService.js",
+        "/App_Plugins/Skybrud.Umbraco.Redirects/Scripts/Controllers/AddRedirectDialog.js",
+        "/App_Plugins/Skybrud.Umbraco.Redirects/Scripts/Controllers/EditRedirectDialog.js",
+        "/App_Plugins/Skybrud.Umbraco.Redirects/Scripts/Controllers/Dashboard.js",
+        "/App_Plugins/Skybrud.Umbraco.Redirects/Scripts/Controllers/PropertyEditor.js"
+    ],
+    "css": [
+        "/App_Plugins/Skybrud.Umbraco.Redirects/Styles/Styles.css"
+    ]
+}

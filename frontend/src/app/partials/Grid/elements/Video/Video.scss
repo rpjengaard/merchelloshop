@@ -1,0 +1,30 @@
+@import "~styles/variables";
+
+.grid-video {
+	@include col(margin-left, 4);
+	@include col(margin-right, 1);
+
+	.sky-video {
+		@include col(height, 8);
+	}
+
+	.sky-video-play {
+		// CUSTOM BUTTON STYLNG HER
+	}
+}
+
+.grid-description-box {
+	@include col(width, 8);
+	@include col(min-height, 3);
+	@include col(padding-left padding-right margin-left);
+	@include col(margin-top, -2);
+	position: relative;
+	z-index: 10;
+	padding-top: $base-margin;
+	padding-bottom: $base-margin;
+	background-color: $color-1;
+
+	h2 {
+		color: #fff;
+	}
+}

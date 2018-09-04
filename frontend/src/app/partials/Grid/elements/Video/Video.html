@@ -1,0 +1,16 @@
+<div class="grid-video">
+	<SkyVideo
+		v-if="video.url"
+		:src="video.url"
+		:poster="thumbnail"
+	>
+		<!-- <SvgPlay slot="play" /> -->
+	</SkyVideo>
+
+	<div class="grid-description-box">
+		<h2
+			v-if="title"
+			v-text="title"
+		/>
+	</div>
+</div>

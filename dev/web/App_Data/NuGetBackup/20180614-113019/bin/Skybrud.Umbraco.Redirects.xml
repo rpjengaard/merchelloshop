@@ -1,0 +1,934 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skybrud.Umbraco.Redirects</name>
+    </assembly>
+    <members>
+        <member name="T:Skybrud.Umbraco.Redirects.Domains.DomainUtils">
+            <summary>
+            Static utility class with helper methods related to domains.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Domains.DomainUtils.FindDomainForUri(System.Uri)">
+            <summary>
+            Finds the domain matching the specified uri using the domain service.
+            </summary>
+            <param name="current">The uri, or null.</param>
+            <returns>The domain</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Domains.DomainUtils.DomainForUri(System.Collections.Generic.IEnumerable{Umbraco.Core.Models.IDomain},System.Uri)">
+            <summary>
+            Finds the domain that best matches a specified uri, into a group of domains.
+            </summary>
+            <param name="domains">The group of domains.</param>
+            <param name="current">The uri, or null.</param>
+            <returns>The domain and its normalized uri, that best matches the specified uri.</returns>
+            <remarks>Copied from Umbraco core, since it's an internal method there.</remarks>
+            <see>
+                <cref>https://github.com/umbraco/Umbraco-CMS/blob/22bd6cd989e2596b69339d9b344e14bcc759e82b/src/Umbraco.Web/Routing/DomainHelper.cs#L117</cref>
+            </see>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Domains.DomainUtils.SanitizeForBackwardCompatibility(Umbraco.Core.Models.IDomain)">
+            <summary>
+            Sanitize a Domain.
+            </summary>
+            <param name="domain">The Domain to sanitize.</param>
+            <returns>The sanitized domain.</returns>
+            <remarks>Copied from Umbraco core, since it's an internal method there.</remarks>
+            <see>
+                <cref>https://github.com/umbraco/Umbraco-CMS/blob/22bd6cd989e2596b69339d9b344e14bcc759e82b/src/Umbraco.Web/Routing/DomainHelper.cs#L197</cref>
+            </see>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Extensions.PublishedContentExtensions">
+            <summary>
+            Static class with extenion methods for working with <see cref="T:Umbraco.Core.Models.IPublishedContent"/> and redirects.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Extensions.PublishedContentExtensions.GetOutboundRedirect(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/> representing the outbound redirect from the property
+            with alias <c>skyRedirect</c>.
+            
+            This method will ensure that you'll always get an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/> even though
+            the property may not hold a redirect. You can then use the <see cref="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.IsValid"/> property
+            to check that the redirect is in fact valid.
+            </summary>
+            <param name="content">The content item holding the property.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Extensions.PublishedContentExtensions.GetOutboundRedirect(Umbraco.Core.Models.IPublishedContent,System.String)">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/> representing the outbound redirect from the property
+            with specified alias <paramref name="propertyAlias"/>.
+            
+            This method will ensure that you'll always get an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/> even though
+            the property may not hold a redirect. You can then use the <see cref="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.IsValid"/> property
+            to check that the redirect is in fact valid.
+            </summary>
+            <param name="content">The content item holding the property.</param>
+            <param name="propertyAlias">The alias of the property.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Extensions.NameValueCollectionExtension.Append(System.Collections.Specialized.NameValueCollection,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Adds the second dictionary to the first. If a key occurs in both dictionaries, the value of the second dictionary is taken.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Extensions.NameValueCollectionExtension.Merge(System.Collections.Specialized.NameValueCollection,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Merges two collections. If a key occurs in both collections, the value of the second collection is taken.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Extensions.NameValueCollectionExtension.ToQueryString(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Constructs a QueryString (string).
+            Consider this method to be the opposite of <see cref="M:System.Web.HttpUtility.ParseQueryString(System.String)"/>
+            </summary>
+            <param name="nameValueCollection">NameValueCollection</param>
+            <returns>String</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect">
+            <summary>
+            Model for an outbound redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.IsPermanent">
+            <summary>
+            Gets whether the redirect is permanent.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.Link">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> representing the destination.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.Url">
+            <summary>
+            Gets the URL of the redirects.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.HasLink">
+            <summary>
+            Same as <see cref="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.IsValid"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.IsValid">
+            <summary>
+            Gets whether the redirects has a valid link.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.#ctor">
+            <summary>
+            Initializes a new instance with an empty model.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.#ctor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Initializes a new instance based on the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the redirect.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <see cref="T:Newtonsoft.Json.Linq.JObject"/> into an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/>.
+            </summary>
+            <param name="obj">An instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> representing the redirect.</param>
+            <returns>An instacne of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/>, or <c>null</c> if <paramref name="obj"/> is <c>null</c>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect.Deserialize(System.String)">
+            <summary>
+            Deseralizes the specified JSON string into an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.Outbound.OutboundRedirect"/>.
+            </summary>
+            <param name="json">The raw JSON to be parsed.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectRootNode">
+            <summary>
+            Class representing a root node.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectRootNode.Id">
+            <summary>
+            Gets the ID of the root node.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectRootNode.Name">
+            <summary>
+            Gets the name of the root node.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectRootNode.Icon">
+            <summary>
+            Gets the icon of the root node.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectRootNode.GetFromContent(Umbraco.Core.Models.IContent)">
+            <summary>
+            Initiaizes a new instance based on the specified <paramref name="content"/> item.
+            </summary>
+            <param name="content">The content item representing the root node.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectRootNode"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectDomain">
+            <summary>
+            Class representing a domain.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectDomain.Domain">
+            <summary>
+            Gets a reference to the underlying <see cref="T:Umbraco.Core.Models.IDomain"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectDomain.Id">
+            <summary>
+            Gets the ID of the domain.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectDomain.Name">
+            <summary>
+            Gets the name of the domain.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectDomain.RootNodeId">
+            <summary>
+            Gets the root node ID of the domain.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectDomain.GetFromDomain(Umbraco.Core.Models.IDomain)">
+            <summary>
+            Initializes a new instance from the specified Umbraco <paramref name="domain"/>.
+            </summary>
+            <param name="domain">The Umbraco domain.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectDomain"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectItemRow">
+            <summary>
+            Class representing the database row of a redirect.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.TableName">
+            <summary>
+            Gets the name of the table used in the database.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.PrimaryKey">
+            <summary>
+            Gets the primary key of the redirects table.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.Id">
+            <summary>
+            Gets or sets the numeric ID (primary key) of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.UniqueId">
+            <summary>
+            Gets or sets the unique ID of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.RootNodeId">
+            <summary>
+            Gets or sets the root node ID of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.Url">
+            <summary>
+            Gets the inbound URL (path) of the redirect. The value value will not contain the domain or the query
+            string.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.QueryString">
+            <summary>
+            Gets or sets the inbound query string of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.LinkMode">
+            <summary>
+            Gets or sets the mode/type of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.LinkId">
+            <summary>
+            Gets or sets the content or media ID of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.LinkUrl">
+            <summary>
+            Gets or sets the URL of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.LinkName">
+            <summary>
+            Gets or sets the name of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.Created">
+            <summary>
+            Gets or sets the timestamp for when the redirect was created.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.Updated">
+            <summary>
+            Gets or sets the timestamp for when the redirect was last updated.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.IsPermanent">
+            <summary>
+            Gets or sets whether the redirect is permanent.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.IsRegex">
+            <summary>
+            Gets or sets whether <see cref="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.Url"/> is a REGEX pattern.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItemRow.ForwardQueryString">
+            <summary>
+            Gets or sets whether the query string should be forwarded.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectItem">
+            <summary>
+            Class representing a redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Row">
+            <summary>
+            Gets a reference to the internal <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItemRow"/> class used for representing the data as they
+            are stored in the database.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Id">
+            <summary>
+            Gets the ID of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.UniqueId">
+            <summary>
+            Gets the unique ID of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.RootNodeId">
+            <summary>
+            Gets or sets the root node ID of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.RootNodeName">
+            <summary>
+            Gets the name of the root node, or <c>null</c> if a global redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.RootNodeIcon">
+            <summary>
+            Gets the icon of the root node, or <c>null</c> if a global redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.RootNodeDomains">
+            <summary>
+            Gets the domains of the root node.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Url">
+            <summary>
+            Gets or sets the inbound URL (path) of the redirect. The value value will not contain the domain or the query
+            string.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Urls">
+            <summary>
+            Gets an array of inbound URLs of the redirect. If a root node has been selected for this redirect, the
+            array will contain a full URL for each domain associated with the root node. The returned URLs will also
+            contain the query string (if specified).
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.QueryString">
+            <summary>
+            Gets or sets the inbound query string of the redirect.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.LinkMode">
+            <summary>
+            Gets or sets the mode/type of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.LinkId">
+            <summary>
+            Gets or sets the content or media ID of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.LinkUrl">
+            <summary>
+            Gets or sets the URL of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.LinkName">
+            <summary>
+            Gets or sets the name of the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Link">
+            <summary>
+            Gets or sets an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> representing the destination link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Created">
+            <summary>
+            Gets or sets the timestamp for when the redirect was created.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Updated">
+            <summary>
+            Gets or sets the timestamp for when the redirect was last updated.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.IsPermanent">
+            <summary>
+            Gets or sets whether the redirect is permanent.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.IsRegex">
+            <summary>
+            Gets or sets whether <see cref="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.Url"/> is a REGEX pattern.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectItem.ForwardQueryString">
+            <summary>
+            Gets or sets whether the query string should be forwarded.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectItem.#ctor">
+            <summary>
+            Initializes an empty redirect.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem">
+            <summary>
+            Class representing a single link item.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Id">
+            <summary>
+            Gets the ID of the selected content or media. If an URL has been selected, this will return <c>0</c>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Name">
+            <summary>
+            Gets the name of the link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Url">
+            <summary>
+            Gets the URL of the link. Since the URL of a content or media item may change over time (eg. if renamed or
+            moved), this property will attempt to retrieve the current URL from the relevant Umbraco cache.
+            
+            If <see cref="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Mode"/> is <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Content"/>, the URL of the content item will be
+            retrieved through the content cache (if available). In a similar way, if <see cref="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Mode"/> is
+            <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Media"/> the URL of the media item will be retrieved through the media cache
+            (if available). The original URL as saved in Umbraco can be accessed through the <see cref="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.RawUrl"/>
+            property.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Mode">
+            <summary>
+            Gets the mode (or type) of the link.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.IsValid">
+            <summary>
+            Gets whether the link is valid.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.RawUrl">
+            <summary>
+            Gets the raw URL as saved in Umbraco. The URL may be wrong if referencing content or media that has been
+            renamed, moved or similar.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.#ctor(System.Int32,System.String,System.String,Skybrud.Umbraco.Redirects.Models.RedirectLinkMode)">
+            <summary>
+            Initializes a new link picker item.
+            </summary>
+            <param name="id">The ID of the content or media item.</param>
+            <param name="name">The name (text) of the link.</param>
+            <param name="url">The URL of the link.</param>
+            <param name="mode">The mode of the link - either <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Content"/>,
+            <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Media"/> or <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Url"/>.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.#ctor(System.Int32,System.String,System.String,System.String,Skybrud.Umbraco.Redirects.Models.RedirectLinkMode)">
+            <summary>
+            Initializes a new link picker item.
+            </summary>
+            <param name="id">The ID of the content or media item.</param>
+            <param name="name">The name (text) of the link.</param>
+            <param name="url">The URL of the link.</param>
+            <param name="rawUrl">The raw URL of the link.</param>
+            <param name="mode">The mode of the link - either <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Content"/>,
+            <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Media"/> or <see cref="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Url"/>.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.GetCalculatedUrl">
+            <summary>
+            Method for calculating the current destination URL of the redirect if the destination is either a content item or media item.
+            </summary>
+            <returns>The calculated URL.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.Parse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Parses the specified <paramref name="obj"/> into an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/>.
+            </summary>
+            <param name="obj">The instance of <see cref="T:Newtonsoft.Json.Linq.JObject"/> to be parsed.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.GetFromContent(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Initializes a new link item from the specified <paramref name="content"/> representing a content
+            item.
+            </summary>
+            <param name="content">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing a content item.</param>
+            <returns>The created <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> instance.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.GetFromMedia(Umbraco.Core.Models.IPublishedContent)">
+            <summary>
+            Initializes a new link item from the specified <paramref name="media"/> representing a media item.
+            </summary>
+            <param name="media">An instance of <see cref="T:Umbraco.Core.Models.IPublishedContent"/> representing a media item.</param>
+            <returns>The created <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> instance.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem.GetFromUrl(System.String,System.String)">
+            <summary>
+            Initializes a new link picker item from the specified <paramref name="url"/> and <paramref name="name"/>.
+            </summary>
+            <param name="url">The URL of the link.</param>
+            <param name="name">The name (text) of the link.</param>
+            <returns>The created <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> instance.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode">
+            <summary>
+            Enum describing the type of the link.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Url">
+            <summary>
+            Describes a link that is an external URL.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Content">
+            <summary>
+            Describes a link that is a reference to an internal content node in Umbraco.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Models.RedirectLinkMode.Media">
+            <summary>
+            Describes a link that is a reference to an internal media node in Umbraco.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectsRepository">
+            <summary>
+            Repository for managing redirects.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.Current">
+            <summary>
+            Gets a reference to the corrent repository.
+            </summary>
+            <remarks>Notice: This property will just initialize and return a new instance each time called.</remarks>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.Database">
+            <summary>
+            Gets a reference to the Umbraco database.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.SqlSyntax">
+            <summary>
+            Gets a reference to the current <see cref="T:Umbraco.Core.Persistence.SqlSyntax.ISqlSyntaxProvider"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.SchemaHelper">
+            <summary>
+            Gets a reference to the current <see cref="P:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.SchemaHelper"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetDomains">
+            <summary>
+            Gets an array of all domains (<see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectDomain"/>) registered in Umbraco.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.AddRedirect(System.Int32,System.String,Skybrud.Umbraco.Redirects.Models.RedirectLinkItem)">
+            <summary>
+            Adds a new permanent redirect matching the specified inbound <paramref name="url"/>. A request to
+            <paramref name="url"/> will automatically be redirected to the URL of the specified
+            <paramref name="destionation"/> link.
+            </summary>
+            <param name="rootNodeId">THe ID of the root/side node. Use <c>0</c> for a global redirect.</param>
+            <param name="url">The inbound URL to match.</param>
+            <param name="destionation">An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> representing the destination link.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/> representing the created redirect.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.AddRedirect(System.Int32,System.String,Skybrud.Umbraco.Redirects.Models.RedirectLinkItem,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new redirect matching the specified inbound <paramref name="url"/>. A request to
+            <paramref name="url"/> will automatically be redirected to the URL of the specified
+            <paramref name="destionation"/> link.
+            </summary>
+            <param name="rootNodeId">THe ID of the root/side node. Use <c>0</c> for a global redirect.</param>
+            <param name="url">The inbound URL to match.</param>
+            <param name="destionation">An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectLinkItem"/> representing the destination link.</param>
+            <param name="permanent">Whether the redirect should be permanent (301) or temporary (302).</param>
+            <param name="isRegex">Whether regex should be enabled for the redirect.</param>
+            <param name="forwardQueryString">Whether the redirect should forward the original query string.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/> representing the created redirect.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.SaveRedirect(Skybrud.Umbraco.Redirects.Models.RedirectItem)">
+            <summary>
+            Saves the specified <paramref name="redirect"/>.
+            </summary>
+            <param name="redirect">The redirected to be saved.</param>
+            <returns>The saved <paramref name="redirect"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.DeleteRedirect(Skybrud.Umbraco.Redirects.Models.RedirectItem)">
+            <summary>
+            Deletes the specified <paramref name="redirect"/> from the database.
+            </summary>
+            <param name="redirect">The redirected to be deleted.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectById(System.Int32)">
+            <summary>
+            Gets the redirect mathing the specified numeric <paramref name="redirectId"/>.
+            </summary>
+            <param name="redirectId">The numeric ID of the redirect.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectById(System.String)">
+            <summary>
+            Gets the redirect mathing the specified unique <paramref name="redirectId"/>.
+            </summary>
+            <param name="redirectId">The unique ID of the redirect.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectByUrl(System.Int32,System.String)">
+            <summary>
+            Gets the redirect mathing the specified <paramref name="url"/>.
+            </summary>
+            <param name="rootNodeId">THe ID of the root/side node. Use <c>0</c> for a global redirect.</param>
+            <param name="url">The URL of the redirect.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectByUrl(System.Int32,System.String,System.String)">
+            <summary>
+            Gets the redirect mathing the specified <paramref name="url"/> and <paramref name="queryString"/>.
+            </summary>
+            <param name="rootNodeId">THe ID of the root/side node. Use <c>0</c> for a global redirect.</param>
+            <param name="url">The URL of the redirect.</param>
+            <param name="queryString">The query string of the redirect.</param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectsByUrl(System.String)">
+            <summary>
+            Gets the redirects mathing the specified <paramref name="url"/>.
+            </summary>
+            <param name="url">The URL of the redirects.</param>
+            <returns>An array of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectsByUrl(System.String,System.String)">
+            <summary>
+            Gets the redirects mathing the specified <paramref name="url"/> and <paramref name="queryString"/>.
+            </summary>
+            <param name="url">The URL of the redirect.</param>
+            <param name="queryString">The query string of the redirect.</param>
+            <returns>An array of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>, or <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectsByContentId(System.Int32)">
+            <summary>
+            Gets an array of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/> for the content item with the specified <paramref name="contentId"/>.
+            </summary>
+            <param name="contentId">The numeric ID of the content item.</param>
+            <returns>An array of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirectsByMediaId(System.Int32)">
+            <summary>
+            Gets an array of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/> for the media item with the specified <paramref name="mediaId"/>.
+            </summary>
+            <param name="mediaId">The numeric ID of the media item.</param>
+            <returns>An array of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectItem"/>.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsRepository.GetRedirects(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets an instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResult"/> representing a paginated search for redirects.
+            </summary>
+            <param name="page">The page to be returned (default is <c>1</c>)</param>
+            <param name="limit">The maximum amount of redirects to be returned per page (default is <c>20</c>).</param>
+            <param name="type">The type of the redirects to be returned. Possible values are <c>url</c>,
+                <c>content</c> or <c>media</c>. If not specified, all types of redirects will be returned.
+                Default is <c>null</c>.</param>
+            <param name="text">A string value that should be present in either the text or URL of the returned
+                redirects. Default is <c>null</c>.</param>
+            <param name="rootNodeId"></param>
+            <returns>An instance of <see cref="T:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResult"/>.</returns>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResult">
+            <summary>
+            Class representing a collection of redirects.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResult.Pagination">
+            <summary>
+            Gets pagination information about the collection.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResult.Items">
+            <summary>
+            Gets an array representing the items of the collection.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResult.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,Skybrud.Umbraco.Redirects.Models.RedirectItem[])">
+            <summary>
+            Initializes a new instance based on the specified parameters.
+            </summary>
+            <param name="total">The total amount of redirects matched.</param>
+            <param name="limit">The maximum amount of redirects to be returned per page.</param>
+            <param name="offset">The offset.</param>
+            <param name="page">The page returned.</param>
+            <param name="pages">The total amount of pages.</param>
+            <param name="items">An array of the items making up the page.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination">
+            <summary>
+            Class with pagination information about a collection of redirect items.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.Total">
+            <summary>
+            Gets the total amount of items across all pages.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.Limit">
+            <summary>
+            Gets the maximum amount of items per page.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.Offset">
+            <summary>
+            Gets the offset.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.Page">
+            <summary>
+            Gets the current page.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.Pages">
+            <summary>
+            Gets the total amout of pages.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.From">
+            <summary>
+            Gets the index of the first item on the page.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.To">
+            <summary>
+            Gets the index of the last item on the page.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Models.RedirectsSearchResultPagination.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance based on the specified parameters.
+            </summary>
+            <param name="total">The total amount of redirects matched.</param>
+            <param name="limit">The maximum amount of redirects to be returned per page.</param>
+            <param name="offset">The offset.</param>
+            <param name="page">The page returned.</param>
+            <param name="pages">The total amount of pages.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController">
+            <summary>
+            WebAPI controller for managing redirects.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.Repository">
+            <summary>
+            Gets a reference to the current redirects repository.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.Culture">
+            <summary>
+            Gets a reference to the culture of the authenticated user.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.GetDomains">
+            <summary>
+            Gets a list of all Umbraco domains.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.GetRootNodes">
+            <summary>
+            Gets a list of root nodes based on the domains added to Umbraco. A root node will only be included in the
+            list once - even if it has been assigned multiple domains.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.GetRedirects(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Gets a paginated list of all redirects.
+            </summary>
+            <param name="page">The page to be returned.</param>
+            <param name="limit">The maximum amount of redirects to be returned per page.</param>
+            <param name="type">The type of redirects that should be returned.</param>
+            <param name="text">The text that the returned redirects should match.</param>
+            <param name="rootNodeId">The root node ID that the returned redirects should match. <c>null</c> means all redirects. <code>0</code> means all global redirects.</param>
+            <returns>A list of redirects.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.GetRedirectsForContent(System.Int32)">
+            <summary>
+            Gets a list of all redirects for the content item matching the specified <paramref name="contentId"/>.
+            </summary>
+            <param name="contentId">The ID of the content item.</param>
+            <returns>A list of redirects.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.GetRedirectsForMedia(System.Int32)">
+            <summary>
+            Gets a list of all redirects for the media item matching the specified <paramref name="contentId"/>.
+            </summary>
+            <param name="contentId">The ID of the media item.</param>
+            <returns>A list of redirects.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.AddRedirect(System.Int32,System.String,System.String,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Adds a new redirect.
+            </summary>
+            <param name="rootNodeId">The root node ID. <c>0</c> indicates a global redirect.</param>
+            <param name="url">The inbound URL of the redirect.</param>
+            <param name="linkMode">The mode/type of the destination link.</param>
+            <param name="linkId">The media or content ID of the destination link.</param>
+            <param name="linkUrl">The URL of the destination link.</param>
+            <param name="linkName">The name of the destination link.</param>
+            <param name="permanent">Indicates whether the redirect should be permanent. Default is <c>true</c>.</param>
+            <param name="regex">Indicates wether the inbound URL is a REGEX pattern. <c>false</c> by default.</param>
+            <param name="forward">Indicates whether the query string should be forwarded. <c>false</c> by default.</param>
+            <returns>The created redirect.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.EditRedirect(System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Edits the redirect with the specified <paramref name="redirectId"/>.
+            </summary>
+            <param name="rootNodeId">The root node ID. <c>0</c> indicates a global redirect.</param>
+            <param name="redirectId">The ID of the redirect.</param>
+            <param name="url">The inbound URL of the redirect.</param>
+            <param name="linkMode">The mode/type of the destination link.</param>
+            <param name="linkId">The media or content ID of the destination link.</param>
+            <param name="linkUrl">The URL of the destination link.</param>
+            <param name="linkName">The name of the destination link.</param>
+            <param name="permanent">Indicates whether the redirect should be permanent. Default is <c>true</c>.</param>
+            <param name="regex">Indicates wether the inbound URL is a REGEX pattern. <c>false</c> by default.</param>
+            <param name="forward">Indicates whether the query string should be forwarded. <c>false</c> by default.</param>
+            <returns>The updated redirect.</returns>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Controllers.Api.RedirectsController.DeleteRedirect(System.String)">
+            <summary>
+            Deletes the redirect with the specified <paramref name="redirectId"/>.
+            </summary>
+            <param name="redirectId">The ID of the redirect.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Exceptions.RedirectNotFoundException">
+            <summary>
+            Exception about a redirect that couldn't be found.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Exceptions.RedirectNotFoundException.#ctor">
+            <summary>
+            Initializes a new exception with default message.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Exceptions.RedirectNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new exception with the specified <paramref name="message"/>.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Exceptions.RedirectsException">
+            <summary>
+            Exception representing a generic error thrown by the logic within this package.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Exceptions.RedirectsException.StatusCode">
+            <summary>
+            The status code of the error.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Exceptions.RedirectsException.#ctor(System.String)">
+            <summary>
+            Initializes a new exception with the specified <paramref name="message"/>. <see cref="P:Skybrud.Umbraco.Redirects.Exceptions.RedirectsException.StatusCode"/> will be <see cref="F:System.Net.HttpStatusCode.InternalServerError"/>.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Exceptions.RedirectsException.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Initializes a new exception with the specified <paramref name="statusCode"/> and <paramref name="message"/>.
+            </summary>
+            <param name="statusCode">The status code.</param>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Exceptions.RedirectsException.#ctor(System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Initializes a new exception with the specified <paramref name="message"/> and <paramref name="statusCode"/>.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="statusCode">The status code.</param>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Package">
+            <summary>
+            Static class with various information and constants about the package.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Package.Alias">
+            <summary>
+            Gets the alias of the package.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Package.Name">
+            <summary>
+            Gets the friendly name of the package.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Package.Version">
+            <summary>
+            Gets the version of the package.
+            </summary>
+        </member>
+        <member name="F:Skybrud.Umbraco.Redirects.Package.SemVersion">
+            <summary>
+            Gets the semantic version of the package.
+            </summary>
+        </member>
+        <member name="T:Skybrud.Umbraco.Redirects.Routing.RedirectsHttpModule">
+            <summary>
+            HTTP module for handling inbound redirects.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Routing.RedirectsHttpModule.Repository">
+            <summary>
+            Gets a reference to the current redirects repository.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Routing.RedirectsHttpModule.Request">
+            <summary>
+            Gets a reference to the current <see cref="T:System.Web.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="P:Skybrud.Umbraco.Redirects.Routing.RedirectsHttpModule.Response">
+            <summary>
+            Gets a reference to the current <see cref="T:System.Web.HttpResponse"/>.
+            </summary>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Routing.RedirectsHttpModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Initializes the HTTP module.
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Skybrud.Umbraco.Redirects.Routing.RedirectsHttpModule.Dispose">
+            <summary>
+            Disposes the HTTP module.
+            </summary>
+        </member>
+    </members>
+</doc>

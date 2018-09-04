@@ -1,0 +1,65 @@
+<transition-group
+	tag="nav"
+	:class="['navigation', `navigation-${type}`, animationDirection]"
+	name="horizontal-slide"
+	@after-leave="removePreviousNavigation"
+>
+	<transition-group
+		tag="ul"
+		name="fade"
+		class="navigation-path-breadcrumb"
+		key="navigationPath"
+	>
+		<!-- <li
+			@click="previousLevel(navigation.parts[0][0].parentId)"
+			:class="['navigation-path-back', { 'hidden': atRoot }]"
+			key="navigationPathBack"
+		>
+			Tilbage
+		</li> -->
+		<li
+			class="navigation-path-heading"
+			v-text="'Du er her:'"
+			key="navigationPathHeading"
+		/>
+		<li
+			v-for="id in navigation.path"
+			@click="goBack(id)"
+			v-html="getTitleFromId(id)"
+			:key="id"
+		/>
+	</transition-group>
+
+	<ul
+		class="navigation-list"
+		v-for="(nav, index) in navigation.parts"
+		v-if="index === 0"
+		:key="nav[0].parentId"
+	>
+		<li
+			v-for="item in nav"
+			v-if="item && item.isVisible"
+			:key="item.id"
+			:class="{
+				active: contentPath.indexOf(item.id) > -1,
+				current: currentPage.id === item.id,
+			}"
+		>
+			<div class="nav-link">
+				<SpaLink
+					:href="item.url"
+					v-html="$stripHtml(item.title)"
+				/>
+			</div>
+
+			<button
+				v-if="item.hasChildren && levels >= 1 && !$isServer"
+				@click="nextLevel(item.id)"
+				class="nav-toggle"
+			>
+				<SvgDots />
+			</button>
+		</li>
+		<li v-if="loading">...</li>
+	</ul>
+</transition-group>

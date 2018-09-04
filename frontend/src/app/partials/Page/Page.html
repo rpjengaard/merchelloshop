@@ -1,0 +1,11 @@
+<SpaLink
+	:class="className"
+	:href="href"
+	:fallback="fallback"
+>
+	<slot
+		:page="pageInfo"
+	>
+		{{$_get(pageInfo, field)}}
+	</slot>
+</SpaLink>

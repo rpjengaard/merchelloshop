@@ -1,0 +1,45 @@
+<div
+	id="app"
+	:class="[currentTemplate, {
+		'env-server': $isServer,
+		'env-client': !$isServer
+	}]"
+>
+	<!-- Uncomment ProgressBar here and in app/index.js if you need progress bar during page fetch -->
+	<!-- <ProgressBar /> -->
+	<PreTransition />
+	<AppHeader />
+
+	<div class="page-wrap">
+
+		<main class="main">
+			<transition
+				appear
+				name="content"
+				mode="out-in"
+			>
+				<router-view
+					:key="$route.path"
+				/>
+			</transition>
+
+			<AppFooter />
+		</main>
+
+	</div>
+
+	<!-- Uncomment CookieBanner here and in app/index.js if you need it -->
+	<!-- <CookieBanner
+		:position="'bottom'"
+		:disableDecline="true"
+		:transitionName="'slideFromBottom'"
+	>
+		<div slot="message">
+			{{$_get(site, 'cookieBanner.cookieText', '')}} <router-link :to="$_get(site, 'cookieBanner.cookieUrl')">Read more here</router-link>
+		</div>
+		<div slot="acceptContent">
+			OK
+		</div>
+	</CookieBanner> -->
+
+</div>

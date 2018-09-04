@@ -1,0 +1,60 @@
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: none;
+	width: 100%;
+}
+
+body {
+	@include font-size($font-size);
+	font-family: $font-name;
+	font-weight: $normal;
+	font-style: normal;
+	line-height: $baseline;
+	color: $font-color;
+	overflow-x: hidden;
+	min-height: 100.1vh;
+	width: 100%;
+}
+
+.app-wrap {
+	width: 100%;
+	overflow: hidden;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+input,
+textarea,
+select,
+button {
+	font-family: $font-name;
+	-webkit-font-smoothing: antialiased;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+.not-mobile {
+	@include lt(20) {
+		display: none;
+	}
+}
+
+.mobile {
+	@include gt(20) {
+		display: none;
+	}
+}
+
+ul.sky-accordions {
+	margin: 0;
+	padding: 0;
+}

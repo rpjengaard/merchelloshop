@@ -1,0 +1,249 @@
+/**
+ * All mixins go in this files
+ *
+ * Make sure mixins are either self explainable
+ * or well documented
+ */
+@mixin gt($key) {
+	@if map-get($breakpoints, $key) {
+		@media all and (min-width:map-get($breakpoints, $key) + 1) { @content; }
+	} @else {
+		@content;
+	}
+}
+
+@mixin lt($key) {
+	@if map-get($breakpoints, $key) {
+		@media all and (max-width:map-get($breakpoints, $key)) { @content; }
+	}
+}
+
+@mixin bt($from, $to) {
+	@include gt($from) {
+		@include lt($to) {
+			@content;
+		}
+	}
+}
+
+@mixin hover($focus: true) {
+	@include gt(10) {
+		&:hover {
+			@content;
+		}
+
+		@if $focus {
+			&:focus {
+				@content;
+			}
+		}
+	}
+}
+
+// Button prettifier
+@mixin button($bg-color: $color-1, $transparent: false, $text-color: #fff) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	margin: 0;
+	padding: 0 10px;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	line-height: 1.2;
+	border-radius: 20px;
+	transition: color .3s,
+				background-color .3s $CubicInOut;
+	@include gt(10) {
+		padding: 0 20px;
+	}
+
+	@if $transparent == true {
+		color: $bg-color;
+		background-color: transparent;
+		border: 1px solid $bg-color;
+
+		@include hover {
+			color: $text-color;
+			background-color: $bg-color;
+		}
+	} @else {
+		color: $text-color;
+		background-color: $bg-color;
+		border: 1px solid $bg-color;
+
+		@include hover {
+			color: $bg-color;
+			background-color: rgba($bg-color, 0);
+		}
+	}
+
+	svg {
+		flex-shrink: 0;
+		flex-grow: 0;
+	}
+
+	path {
+		fill: currentColor;
+	}
+}
+
+@mixin placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+
+	@at-root {
+		:-ms-input-placeholder { @content }
+	}
+}
+
+@mixin print() {
+	@media print {
+		@content;
+	}
+}
+
+@mixin mobile-only() {
+	@include gt(10){
+		display: none;
+	}
+}
+
+@mixin no-mobile() {
+	@include lt(content){
+		display: none;
+	}
+}
+
+@mixin clear-fix() {
+	*zoom: 1;
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin ellipsis() {
+	text-overflow: ellipsis;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+@mixin properties($properties, $list) {
+	// Loop through each property in list
+	@for $i from 1 through length($properties) {
+		$property: nth($properties, $i);
+		// Find occurence of ':' in property. Determines @if @else block below.
+		$colon-index: str-index($property, ':');
+
+		@if $colon-index {
+			// if property contains ':' split it up in key value pair
+			$key: str-slice($property, 1, $colon-index - 1);
+			$value: str-slice($property, $colon-index + 1);
+
+			// Loop through list and replace occurences of '$1', '$2', '$3' etc.
+			// in $value with matching nth item in $list
+			@for $j from 1 through length($list) {
+				$val: nth($list, $j);
+				$value: str-replace($value, '$#{$j}', $val);
+			}
+
+			// Print resulting key + value
+			#{$key}: #{$value};
+		} @else {
+			// If list contains multiple values assign each to corresponding nth
+			// property in properties
+			#{$property}: nth($list, min($i, length($list)));
+		}
+	}
+}
+
+@mixin font-size($size, $props: font-size, $min: 0px) {
+	@if (abs($size) > 26px) {
+		@include lt(10) {
+			@include properties($props, max($min, round($size * 0.6)));
+		}
+		@include bt(10, 30) {
+			@include properties($props, max($min, round($size * 0.75)));
+		}
+		@include gt(30) {
+			@include properties($props, $size);
+		}
+	} @else {
+		@include lt(10) {
+			@include properties($props, max($min, round($size * 0.9)));
+		}
+		@include bt(10, 30) {
+			@include properties($props, max($min, round($size * 0.85)));
+		}
+		@include gt(30) {
+			@include properties($props, $size);
+		}
+	}
+}
+
+@mixin html-list($color: currentColor) {
+	//** setup presentation
+	ol,
+	ul {
+		li:before {
+			margin-right: 0.5em;
+			color: $color;
+		}
+	}
+
+	//** Bullet setup
+	ol {
+		counter-reset: item;
+		list-style: none;
+
+		& > li:before {
+			counter-increment: item;
+			content: counter(item) ".";
+		}
+
+		ol > li:before{
+			content: counters(item,".");
+		}
+	}
+
+	ul {
+		list-style: none;
+
+		li:before {
+			content: "•"; // "•" | "◦" | "▪"
+		}
+
+		//** Example for alternativ bullet in nested UL
+		// ul > li:before {
+		// 	content: "•";
+		// }
+
+		ol {
+			counter-reset: item;
+			list-style: none;
+
+			& > li:before {
+				counter-increment: item;
+				content: counter(item) ".";
+			}
+		}
+	}
+}
+
+/**
+ * Inlines SVG icons with dynamic fill color
+ * Mixin outputs svg-load() method which is handled by postcss-inline-svg
+ * after SCSS is done compiling
+ *
+ * NOTE: Remember to add svgs to /static/ folder
+ */
+
+ @mixin svg($svgName, $prop: background-image, $color: $color-1) {
+	#{$prop}: #{'svg-load(\'static/#{$svgName}.svg\', fill: #{$color})'};
+}

@@ -1,0 +1,19 @@
+<article class="content-container">
+	<header class="article-header">
+		<h1 v-html="content.title"></h1>
+		<p
+			v-if="content.teaser"
+			v-html="content.teaser"
+			class="teaser"
+		/>
+	</header>
+	<div class="article-main">
+		<div class="article-content">
+			<Grid
+				v-if="content.grid"
+				:grid="content.grid"
+			/>
+		</div>
+	</div>
+</article>
+

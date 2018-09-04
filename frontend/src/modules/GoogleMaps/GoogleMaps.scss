@@ -1,0 +1,36 @@
+@import '~styles/variables';
+
+.google-maps {
+	.vue-map-container {
+		min-height: 420px;
+
+		.gm-style-iw > div {
+			overflow: hidden !important;
+		}
+	}
+}
+
+.google-maps-info {
+	overflow: visible;
+
+	h5 {
+		margin-bottom: 0.5em;
+	}
+
+	address {
+		a {
+			color: inherit;
+		}
+
+		> div {
+			text-transform: capitalize;
+		}
+	}
+
+	.google-maps-info-link {
+		display: block;
+		margin-top: 1em;
+		position: relative;
+		font-weight: $bold;
+	}
+}

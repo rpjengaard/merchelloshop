@@ -1,0 +1,15 @@
+@import '~styles/variables';
+@import '~styles/base';
+
+#app {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	min-height: 100.1vh;
+}
+
+.page-wrap {
+	width: 100%;
+	flex-grow: 0;
+	flex-shrink: 0;
+}

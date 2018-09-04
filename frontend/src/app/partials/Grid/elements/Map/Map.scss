@@ -1,0 +1,9 @@
+@import "~styles/variables";
+
+.grid-map {
+	@include content-narrow();
+
+	.vue-map-container {
+		min-height: 420px;
+	}
+}

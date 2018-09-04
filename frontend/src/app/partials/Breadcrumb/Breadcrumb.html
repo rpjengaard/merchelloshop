@@ -1,0 +1,16 @@
+<nav class="breadcrumb">
+	<ol class="breadcrumb-list">
+		<li
+			v-for="item in items"
+			v-if="item"
+			:class="{ current: isCurrent(item) }"
+		>
+			<div class="nav-link">
+				<SpaLink
+					:href="(item.template) ? item.url : ''"
+					v-html="$stripHtml(item.title)"
+				/>
+			</div>
+		</li>
+	</ol>
+</nav>

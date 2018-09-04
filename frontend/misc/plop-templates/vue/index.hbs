@@ -1,0 +1,15 @@
+import Vue from 'vue';
+{{#if store}}
+import Store from 'store';
+
+import {{properCase name}}Store from './store';
+import {{properCase name}} from './{{properCase name}}';
+
+Store.addModule('{{properCase name}}', {{properCase name}}Store);
+{{else}}
+import {{properCase name}} from './{{properCase name}}';
+{{/if}}
+
+Vue.component('{{properCase name}}', {{properCase name}});
+
+export default {{properCase name}};

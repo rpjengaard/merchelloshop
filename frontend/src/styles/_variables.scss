@@ -1,0 +1,73 @@
+/* Colors */
+$color-1: #03163f;
+$color-2: #00aeee;
+
+$color-gray-10: #f8f8f8;
+$color-gray-20: #ececec;
+$color-gray-30: #d9d9d9;
+$color-gray: $color-gray-20;
+
+/* Font */
+$font-name: 'Helvetica', 'Arial', sans-serif;
+$light: 200;
+$normal: normal;
+$medium: 600;
+$bold: 800;
+$heavy: 900;
+$font-color: #010101;
+$link-color: $color-1;
+$font-size: 20px;
+$font-small: 17px;
+$baseline: 1.5;
+
+/* Sizes */
+$base-margin: 20px;
+$border-radius: 0;
+
+/* Z-indices */
+$z-footer: 100;
+$z-header: 200;
+$z-overlay: 1000;
+$z-upper: 1100;
+
+
+/* Breakpoints */
+$breakpoints: (
+	 5: 500px,
+	10: 740px,
+	20: 1024px,
+	30: 1366px,
+	40: 1700px,
+);
+
+$content-widths: (
+	 0: 95vw,
+	 5: 95vw,
+	10: 95vw,
+	20: 984px,
+	30: 1226px,
+	40: 1600px,
+);
+
+$col-size: (
+	 0: map-get($content-widths, 0) / 24,
+	 5: map-get($content-widths, 5) / 24,
+	10: map-get($content-widths, 10) / 24,
+	20: map-get($content-widths, 20) / 24,
+	30: map-get($content-widths, 30) / 24,
+	40: map-get($content-widths, 40) / 24,
+);
+
+$row-size: (
+	 0: 30px,
+	 5: 30px,
+	10: 30px,
+	20: 30px,
+	30: 40px,
+	40: 40px,
+);
+
+@import 'utilities/mixins';
+@import 'utilities/easings';
+@import 'utilities/functions';
+@import 'utilities/grid';
