@@ -50,6 +50,9 @@
     <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="Braintree, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31b586f34d3e96c7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Braintree.3.3.0\lib\net452\Braintree.dll</HintPath>
+    </Reference>
     <Reference Include="businesslogic, Version=1.0.6820.12886, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.2\lib\net45\businesslogic.dll</HintPath>
     </Reference>
@@ -100,6 +103,21 @@
     </Reference>
     <Reference Include="MarkdownSharp, Version=1.14.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Markdown.1.14.7\lib\net45\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Merchello.Core, Version=2.6.6489.14468, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Merchello.Core.2.6.0\lib\net45\Merchello.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Merchello.Examine, Version=2.6.6489.14471, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Merchello.Core.2.6.0\lib\net45\Merchello.Examine.dll</HintPath>
+    </Reference>
+    <Reference Include="Merchello.Providers, Version=2.6.6489.14478, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Merchello.Core.2.6.0\lib\net45\Merchello.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Merchello.Web, Version=2.6.6489.14472, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Merchello.Core.2.6.0\lib\net45\Merchello.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Merchello.Web.Store, Version=2.6.6489.14479, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Merchello.Core.2.6.0\lib\net45\Merchello.Web.Store.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
       <HintPath>..\packages\UmbracoCms.Core.7.12.2\lib\net45\Microsoft.ApplicationBlocks.Data.dll</HintPath>
@@ -153,6 +171,12 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PayPalCoreSDK, Version=1.6.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalCoreSDK.1.6.1\lib\net451\PayPalCoreSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalMerchantSDK, Version=2.15.117.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalMerchantSDK.2.15.117\lib\net20\PayPalMerchantSDK.dll</HintPath>
+    </Reference>
     <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\semver.1.1.2\lib\net451\Semver.dll</HintPath>
     </Reference>
@@ -188,6 +212,7 @@
     <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.12.2\lib\net45\System.Data.SqlServerCe.Entity.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
